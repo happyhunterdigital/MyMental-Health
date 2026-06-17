@@ -214,7 +214,7 @@ ${submittedInquiry.fullName}`
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[11px] font-mono font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">
-                        Full Name & Credentials <span className="text-orange-active">*</span>
+                        Full Name & Credentials <span className="text-sky-600 font-bold">*</span>
                       </label>
                       <input
                         type="text"
@@ -222,7 +222,7 @@ ${submittedInquiry.fullName}`
                         placeholder="e.g. Dr. Thabo Motsumi"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
+                        className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -235,7 +235,7 @@ ${submittedInquiry.fullName}`
                         placeholder="e.g. Motsumi Chambers"
                         value={practiceName}
                         onChange={(e) => setPracticeName(e.target.value)}
-                        className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
+                        className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -248,12 +248,12 @@ ${submittedInquiry.fullName}`
                       <select
                         value={role}
                         onChange={(e) => setRole(e.target.value)}
-                        className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors cursor-pointer"
+                        className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors cursor-pointer"
                       >
                         <option value="Specialist Physician">Specialist Physician / Surgeon</option>
                         <option value="General Practitioner (GP)">General Practitioner (GP)</option>
                         <option value="Hospital Risk Architect">Hospital Risk Manager / Board</option>
-                        <option value="Allied Practitioner">Allied Healthcare Practitioner</option>
+                        <option value="Allied Healthcare Practitioner">Allied Healthcare Practitioner</option>
                         <option value="Broker Representative">Indemnity Broker Partner</option>
                       </select>
                     </div>
@@ -265,7 +265,7 @@ ${submittedInquiry.fullName}`
                       <select
                         value={interestArea}
                         onChange={(e) => setInterestArea(e.target.value)}
-                        className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors cursor-pointer"
+                        className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors cursor-pointer"
                       >
                         <option value="HPCSA Disciplinary (Section 41)">HPCSA Disciplinary (Section 41)</option>
                         <option value="Private Indemnity Cover Design">Private Indemnity Cover Design</option>
@@ -279,7 +279,7 @@ ${submittedInquiry.fullName}`
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[11px] font-mono font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">
-                        Secure Email Vector <span className="text-orange-active">*</span>
+                        Secure Email Vector <span className="text-sky-600 font-bold">*</span>
                       </label>
                       <input
                         type="email"
@@ -287,13 +287,13 @@ ${submittedInquiry.fullName}`
                         placeholder="e.g. physician@chambers.co.za"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
+                        className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
                     </div>
 
                     <div>
                       <label className="block text-[11px] font-mono font-extrabold text-slate-500 uppercase tracking-wider mb-1.5">
-                        Direct Phone Vector <span className="text-orange-active">*</span>
+                        Direct Phone Vector <span className="text-sky-600 font-bold">*</span>
                       </label>
                       <input
                         type="tel"
@@ -301,7 +301,7 @@ ${submittedInquiry.fullName}`
                         placeholder="e.g. +27 (0) 73 125 4488"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
+                        className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -320,10 +320,10 @@ ${submittedInquiry.fullName}`
                           className={`p-2.5 rounded-lg border transition-all cursor-pointer font-bold ${
                             urgency === lvl
                               ? lvl === "Immediate Dr. Consultation Needed"
-                                ? "bg-orange-active shadow-md text-white border-orange-active"
+                                ? "bg-rose-600 shadow-md text-white border-rose-600"
                                 : lvl === "High"
-                                ? "bg-indigo-700 text-white border-indigo-700"
-                                : "bg-slate-900 text-mint border-slate-900"
+                                ? "bg-sky-600 text-white border-sky-600"
+                                : "bg-slate-900 text-emerald-400 border-slate-900"
                               : "bg-slate-50 border-slate-200 text-slate-500 hover:text-slate-800"
                           }`}
                         >
@@ -342,13 +342,13 @@ ${submittedInquiry.fullName}`
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Outline any active HPCSA complaints, RWOPS notices, or sessional coverage details..."
-                      className="w-full bg-cream/40 border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors resize-none"
+                      className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-orange-active hover:bg-orange-active/90 text-white font-display font-extrabold py-4 px-4 rounded-xl shadow-lg shadow-orange-active/25 transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-sky-600 hover:bg-sky-700 text-white font-display font-extrabold py-4 px-4 rounded-xl shadow-lg shadow-sky-600/10 transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-5 h-5 text-white" />
                     Register Secure Case Cover Application
@@ -394,7 +394,7 @@ ${submittedInquiry.fullName}`
                           setCopiedDraft(true);
                           setTimeout(() => setCopiedDraft(false), 2000);
                         }}
-                        className="text-indigo-700 hover:text-indigo-900 font-mono font-bold flex items-center gap-1.5 transition cursor-pointer"
+                        className="text-sky-600 hover:text-sky-800 font-mono font-bold flex items-center gap-1.5 transition cursor-pointer"
                       >
                         {copiedDraft ? (
                           <>
@@ -421,7 +421,7 @@ ${submittedInquiry.fullName}`
                       href={`mailto:${profileMeta.contact.email}?subject=Secure%20Malpractice%20Advisory%20Intake%20[ID:${submittedInquiry.id}]&body=${encodeURIComponent(
                         submittedInquiry.message || "Hi Dr. Chris, please review my medical practice sessional cover requirements."
                       )}`}
-                      className="flex-1 bg-orange-active hover:bg-orange-active/90 text-white font-semibold py-3 px-4 rounded-lg text-center text-sm flex items-center justify-center gap-2"
+                      className="flex-1 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-4 rounded-lg text-center text-sm flex items-center justify-center gap-2"
                     >
                       <Mail className="w-4 h-4" />
                       Dispatch Direct Email
@@ -449,8 +449,8 @@ ${submittedInquiry.fullName}`
               <div>
                 <div className="flex items-center gap-2">
                   <span className="flex h-2.5 w-2.5 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-active opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-active"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-600"></span>
                   </span>
                   <h3 className="font-display font-black text-slate-900 text-lg uppercase tracking-wider">
                     Client Inquiries & Admissions Vault
@@ -501,7 +501,7 @@ ${submittedInquiry.fullName}`
                           ? "bg-rose-50 border-rose-250 text-rose-700"
                           : inq.urgency === "High"
                           ? "bg-amber-100 border-amber-250 text-amber-800"
-                          : "bg-indigo-50 border-indigo-250 text-indigo-700"
+                          : "bg-emerald-50 border-emerald-250 text-emerald-700"
                       }`}>
                         {inq.urgency}
                       </span>
@@ -509,14 +509,14 @@ ${submittedInquiry.fullName}`
 
                     <div className="space-y-1">
                       <h4 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                        <User className="w-4.5 h-4.5 text-indigo-700 bg-white shadow-sm p-1 rounded-full border" />
+                        <User className="w-4.5 h-4.5 text-sky-600 bg-white shadow-sm p-1 rounded-full border" />
                         {inq.fullName}
                       </h4>
                       <div className="text-xs text-slate-500 font-bold">
                         {inq.role} • <span className="text-slate-900">{inq.practiceName}</span>
                       </div>
                       <div className="text-xs text-slate-600 font-medium">
-                        Focus: <span className="text-orange-active font-extrabold">{inq.interestArea}</span>
+                        Focus: <span className="text-sky-600 font-extrabold">{inq.interestArea}</span>
                       </div>
                     </div>
 

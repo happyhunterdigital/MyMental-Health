@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { Quote, ShieldCheck, Award, Star, CornerDownRight } from "lucide-react";
 import { testimonials, caseStudies } from "../data";
+import { motion } from "framer-motion";
 
 export default function Testimonials() {
   const [activeCaseIdx, setActiveCaseIdx] = useState(0);
 
   return (
-    <section className="py-24 bg-cream px-4 text-slate-800 scroll-mt-20 border-b border-slate-200" id="testimonials">
+    <motion.section 
+      className="py-24 bg-cream px-4 text-slate-800 scroll-mt-20 border-b border-slate-200" 
+      id="testimonials"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ ease: "easeInOut", duration: 0.8 }}
+    >
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-250 text-slate-800 text-xs font-mono font-bold uppercase shadow-sm">
-            <Star className="w-4 h-4 text-orange-active fill-orange-active" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-sm">
+            <Star className="w-4 h-4 text-sky-600 fill-sky-600" />
             Verified Practitioner Testimonials
           </div>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-4 mt-4">
@@ -28,21 +36,21 @@ export default function Testimonials() {
           {testimonials.map((test) => (
             <div
               key={test.id}
-              className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative hover:border-orange-active/40 hover:shadow-xl transition-all duration-300 group"
+              className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative hover:border-sky-500/40 hover:shadow-xl transition-all duration-300 group"
             >
               {/* Giant decorative quote graphic mark */}
               <div className="absolute top-4 right-4 text-slate-100 pointer-events-none select-none">
-                <Quote className="w-10 h-10 group-hover:scale-110 group-hover:text-mint transition-colors duration-300" />
+                <Quote className="w-10 h-10 group-hover:scale-110 group-hover:text-emerald-400 transition-colors duration-300" />
               </div>
 
               <div>
                 {/* Verified Support badge */}
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
-                  <span className="text-[10px] font-mono text-indigo-700 bg-indigo-50 border border-indigo-100 px-2.5 py-0.5 rounded font-extrabold uppercase tracking-wide">
+                  <span className="text-[10px] font-mono text-sky-700 bg-sky-50 border border-sky-100 px-2.5 py-0.5 rounded font-extrabold uppercase tracking-wide">
                     {test.helpType}
                   </span>
                   {test.verifiedBadge && (
-                    <span className="flex items-center text-[9px] font-mono text-emerald-600 font-extrabold uppercase gap-1 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                    <span className="flex items-center text-[9px] font-mono text-emerald-600 font-extrabold uppercase gap-1 bg-emerald-50 border border-emerald-250 px-2 py-0.5 rounded">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                       SECURE MEMBER
                     </span>
@@ -50,7 +58,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Core Content */}
-                <p className="text-slate-650 text-slate-600 text-sm italic leading-relaxed font-sans mb-6 select-text">
+                <p className="text-slate-605 text-slate-600 text-sm italic leading-relaxed font-sans mb-6 select-text">
                   &ldquo;{test.content}&rdquo;
                 </p>
               </div>
@@ -63,7 +71,7 @@ export default function Testimonials() {
                 <p className="text-xs text-slate-500 font-medium">
                   {test.role}
                 </p>
-                <p className="text-[10px] text-orange-active font-mono font-bold mt-1 uppercase">
+                <p className="text-[10px] text-sky-600 font-mono font-bold mt-1 uppercase">
                   {test.organization}
                 </p>
               </div>
@@ -78,8 +86,8 @@ export default function Testimonials() {
           {/* Left: Selector panel styled contractually in charcoal contrast */}
           <div className="lg:col-span-5 bg-slate-900 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col justify-between text-white">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-950 text-mint border border-slate-850 text-[10px] font-mono font-bold uppercase mb-4">
-                <Award className="w-3.5 h-3.5 text-mint animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-950 text-emerald-450 border border-slate-850 text-[10px] font-mono font-bold uppercase mb-4 text-emerald-400">
+                <Award className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                 Proven Case Precedents
               </div>
               
@@ -99,15 +107,15 @@ export default function Testimonials() {
                   onClick={() => setActiveCaseIdx(idx)}
                   className={`w-full text-left p-4 rounded-xl border transition-all cursor-pointer ${
                     activeCaseIdx === idx
-                      ? "bg-slate-950 border-mint text-white shadow-md shadow-slate-950"
+                      ? "bg-slate-950 border-emerald-450 text-white shadow-md shadow-slate-950 border-emerald-450"
                       : "bg-slate-950/40 border-slate-850 text-slate-400 hover:text-white"
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-mint">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400">
                       CASE PRECEDENT 0{idx + 1}
                     </span>
-                    <CornerDownRight className={`w-3.5 h-3.5 transition-all ${activeCaseIdx === idx ? "text-mint translate-x-0.5" : "text-slate-650 text-slate-600"}`} />
+                    <CornerDownRight className={`w-3.5 h-3.5 transition-all ${activeCaseIdx === idx ? "text-emerald-400 translate-x-0.5" : "text-slate-600"}`} />
                   </div>
                   <p className="text-xs font-bold text-white leading-snug mt-1.5 font-display">
                     {cs.title}
@@ -118,11 +126,11 @@ export default function Testimonials() {
           </div>
 
           {/* Right: Precedent details card in warm cream */}
-          <div className="lg:col-span-7 p-6 sm:p-8 bg-cream/30 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-7 p-6 sm:p-8 bg-slate-50/50 flex flex-col justify-between space-y-6">
             
             <div className="space-y-5">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-200 pb-3">
-                <span className="text-xs lg:text-sm font-mono font-bold text-indigo-700 uppercase tracking-wider">
+                <span className="text-xs lg:text-sm font-mono font-bold text-sky-700 uppercase tracking-wider">
                   {caseStudies[activeCaseIdx].clientType}
                 </span>
                 <span className="text-[10px] font-mono text-slate-500 font-semibold bg-white border border-slate-200 px-2.5 py-1 rounded">
@@ -148,13 +156,13 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* Resolved Outcome block with Sunset highlight gradient */}
-            <div className="bg-white border border-slate-205 p-5 rounded-2xl shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-brand-sunset" />
-              <span className="text-[10px] uppercase font-mono tracking-wider text-orange-active font-extrabold block mb-1">
+            {/* Resolved Outcome block with Calming Blue highlight gradient */}
+            <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-brand-indigo" />
+              <span className="text-[10px] uppercase font-mono tracking-wider text-sky-600 font-extrabold block mb-1">
                 Advisory Outcome:
               </span>
-              <p className="text-xs sm:text-sm font-bold text-slate-905 text-slate-800 italic leading-relaxed select-text">
+              <p className="text-xs sm:text-sm font-bold text-slate-800 italic leading-relaxed select-text">
                 &ldquo;{caseStudies[activeCaseIdx].outcome}&rdquo;
               </p>
             </div>
@@ -164,6 +172,6 @@ export default function Testimonials() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
