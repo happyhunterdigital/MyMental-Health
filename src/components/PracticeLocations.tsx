@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { practiceLocations } from "../data";
 import { PracticeLocation } from "../types";
+import { motion } from "framer-motion";
 
 export default function PracticeLocations() {
   const [activeLocId, setActiveLocId] = useState<string>("loc-jhb");
@@ -106,13 +107,20 @@ export default function PracticeLocations() {
   };
 
   return (
-    <section className="py-24 bg-white px-4 text-slate-800 scroll-mt-20 border-b border-slate-200" id="locations">
+    <motion.section 
+      className="py-24 bg-white px-4 text-slate-800 scroll-mt-20 border-b border-slate-200" 
+      id="locations"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ ease: "easeInOut", duration: 0.8 }}
+    >
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-mint text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <Compass className="w-4 h-4 text-mint" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
+            <Compass className="w-4 h-4 text-emerald-400" />
             Licensed Medico-Legal Service Points
           </div>
           
@@ -120,7 +128,7 @@ export default function PracticeLocations() {
             Our Chambers & Consult Stations
           </h2>
           
-          <p className="text-slate-550 text-slate-650 text-slate-500 text-sm mt-4 leading-relaxed font-sans">
+          <p className="text-slate-500 text-sm mt-4 leading-relaxed font-sans">
             Dr. Christopher Mushwana provides physical access and secure rooms for pre-trial audits, HPCSA Section 41 preparation, and Rule 41A clinical mediations across South Africa and Eswatini.
           </p>
         </div>
@@ -132,7 +140,7 @@ export default function PracticeLocations() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Tab Selection buttons */}
-            <div className="bg-cream/75 p-2 rounded-2xl border border-slate-250 flex flex-col gap-2">
+            <div className="bg-slate-50 p-2 rounded-2xl border border-slate-200 flex flex-col gap-2">
               <span className="text-[9px] font-mono font-black text-slate-400 uppercase tracking-wider pl-2 pt-1 selection:bg-transparent">
                 Select Active Advisory Chambers:
               </span>
@@ -154,7 +162,7 @@ export default function PracticeLocations() {
                     }`}
                   >
                     <div className="flex items-center space-x-3 select-none">
-                      <div className={`p-2 rounded-lg ${isActive ? "bg-slate-955 bg-slate-950 text-mint" : "bg-slate-100 text-slate-500"}`}>
+                      <div className={`p-2 rounded-lg ${isActive ? "bg-slate-950 text-emerald-400" : "bg-slate-100 text-slate-500"}`}>
                         <Building className="w-4 h-4" />
                       </div>
                       <div>
@@ -167,7 +175,7 @@ export default function PracticeLocations() {
                       </div>
                     </div>
                     <span className={`text-[9px] font-mono font-extrabold px-2 py-0.5 rounded ${
-                      isActive ? "bg-mint text-slate-900" : "bg-slate-100 text-slate-500"
+                      isActive ? "bg-emerald-400 text-slate-900" : "bg-slate-100 text-slate-500"
                     }`}>
                       {loc.city}
                     </span>
@@ -177,13 +185,13 @@ export default function PracticeLocations() {
             </div>
 
             {/* Active Chamber Metadata Details */}
-            <div className="bg-cream/45 border border-slate-200 rounded-3xl p-6 sm:p-7 space-y-5 shadow-sm relative overflow-hidden">
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-7 space-y-5 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-[0.02] pointer-events-none select-none font-sans font-black text-8xl text-slate-900">
                 GPS
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-black bg-slate-900 text-mint px-2 py-1 rounded-md uppercase tracking-wide">
+                <span className="text-[10px] font-mono font-black bg-slate-900 text-emerald-400 px-2 py-1 rounded-md uppercase tracking-wide">
                   {selectedLoc.type} PROFILE
                 </span>
                 <h3 className="font-display font-extrabold text-[#111827] text-lg sm:text-xl mt-3 leading-snug">
@@ -194,12 +202,12 @@ export default function PracticeLocations() {
               {/* Precise Address */}
               <div className="space-y-3.5 text-xs text-slate-700">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-orange-active shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-905 text-slate-900 block font-bold leading-normal">Physical Location Address:</strong>
+                    <strong className="text-slate-900 block font-bold leading-normal">Physical Location Address:</strong>
                     <p className="text-slate-600 mt-0.5 font-sans break-words select-text">{selectedLoc.address}</p>
                     {selectedLoc.gps.plusCode && (
-                      <span className="inline-block mt-1 font-mono text-[10px] bg-white border border-slate-150 text-indigo-700 px-1.5 py-0.5 rounded">
+                      <span className="inline-block mt-1 font-mono text-[10px] bg-white border border-slate-200 text-sky-700 px-1.5 py-0.5 rounded">
                         Plus Code: {selectedLoc.gps.plusCode}
                       </span>
                     )}
@@ -209,20 +217,20 @@ export default function PracticeLocations() {
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-slate-700 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-905 text-slate-900 block font-bold">Standard Sessional Hours:</strong>
-                    <p className="text-slate-605 text-slate-600 mt-0.5 font-sans select-text">{selectedLoc.operatingHours}</p>
+                    <strong className="text-slate-900 block font-bold">Standard Sessional Hours:</strong>
+                    <p className="text-slate-600 mt-0.5 font-sans select-text">{selectedLoc.operatingHours}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-slate-700 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-905 text-slate-900 block font-bold">Secure Contact Coordinates:</strong>
+                    <strong className="text-slate-900 block font-bold">Secure Contact Coordinates:</strong>
                     <div className="flex flex-col gap-1 mt-0.5 text-slate-600 font-sans">
-                      <a href={`tel:${selectedLoc.phone}`} className="hover:text-orange-active transition select-text">
+                      <a href={`tel:${selectedLoc.phone}`} className="hover:text-sky-600 transition select-text">
                         Phone: {selectedLoc.phone}
                       </a>
-                      <a href={`mailto:${selectedLoc.email}`} className="hover:text-orange-active transition select-text">
+                      <a href={`mailto:${selectedLoc.email}`} className="hover:text-sky-600 transition select-text">
                         Email: {selectedLoc.email}
                       </a>
                     </div>
@@ -253,7 +261,7 @@ export default function PracticeLocations() {
           <div className="lg:col-span-7 space-y-6">
             
             {/* The Integrated Interactive Map Component */}
-            <div className="bg-white border border-slate-350/60 rounded-3xl overflow-hidden shadow-lg relative flex flex-col">
+            <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg relative flex flex-col">
               
               {/* Map Viewport Area */}
               <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-100 flex items-center justify-center">
@@ -275,8 +283,8 @@ export default function PracticeLocations() {
                 <div className="absolute top-4 right-4 z-20 bg-slate-900/90 backdrop-blur-md text-white border border-slate-800 p-3 rounded-2xl shadow-md max-w-[240px] hidden sm:block select-none pointer-events-none">
                   <div className="flex items-center gap-2">
                     <span className="flex h-2.5 w-2.5 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75 animate-duration-1000"></span>
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-mint"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-450 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                     </span>
                     <span className="text-[10px] font-mono uppercase bg-slate-950 px-1.5 py-0.5 rounded text-white font-extrabold">
                       ACTIVE ADVISOR
@@ -291,17 +299,17 @@ export default function PracticeLocations() {
                 </div>
 
                 {/* Satellite map view disclaimer icon */}
-                <div className="absolute bottom-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-slate-850 p-1.5 rounded-lg text-[9px] font-sans font-bold flex items-center gap-1 border border-slate-200 shadow-sm pointer-events-none select-none">
-                  <Info className="w-3.5 h-3.5 text-indigo-700" />
+                <div className="absolute bottom-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-slate-800 p-1.5 rounded-lg text-[9px] font-sans font-bold flex items-center gap-1 border border-slate-200 shadow-sm pointer-events-none select-none">
+                  <Info className="w-3.5 h-3.5 text-sky-650 text-sky-600" />
                   Interactive GIS Viewport
                 </div>
               </div>
 
               {/* Map Actions controls footer bar */}
-              <div className="bg-slate-50 border-t border-slate-150 px-5 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
-                <div className="flex items-center space-x-2 text-xs font-mono font-bold text-slate-505 text-slate-500">
+              <div className="bg-slate-50 border-t border-slate-200 px-5 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
+                <div className="flex items-center space-x-2 text-xs font-mono font-bold text-slate-500">
                   <div className="bg-slate-900 text-white rounded p-1">
-                    <Compass className="w-3.5 h-3.5 text-mint" />
+                    <Compass className="w-3.5 h-3.5 text-emerald-400" />
                   </div>
                   <span>GPS: {selectedLoc.gps.lat}, {selectedLoc.gps.lng}</span>
                 </div>
@@ -311,7 +319,7 @@ export default function PracticeLocations() {
                     href={selectedLoc.googleMapsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center text-xs font-bold bg-white text-slate-800 border border-slate-205 py-2.5 px-4 rounded-xl hover:bg-slate-50 hover:border-slate-350 transition gap-1.5 cursor-pointer"
+                    className="flex-1 sm:flex-none inline-flex items-center justify-center text-xs font-bold bg-white text-slate-800 border border-slate-200 py-2.5 px-4 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition gap-1.5 cursor-pointer"
                   >
                     Open in Google Maps
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -326,7 +334,7 @@ export default function PracticeLocations() {
                     }}
                     className="flex-1 sm:flex-none inline-flex items-center justify-center text-xs font-bold bg-slate-900 text-white py-2.5 px-4 rounded-xl hover:bg-slate-800 transition gap-1.5 cursor-pointer"
                   >
-                    <NavIcon className="w-3.5 h-3.5 text-mint animate-bounce" />
+                    <NavIcon className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
                     How to Get Here
                   </button>
                 </div>
@@ -335,11 +343,11 @@ export default function PracticeLocations() {
             </div>
 
             {/* INTEGRATED ROUTING CALCULATOR */}
-            <div className="bg-cream/20 border border-slate-200 rounded-3xl p-6 sm:p-7 space-y-6 shadow-sm" id="transit-instructions-expanded">
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-7 space-y-6 shadow-sm" id="transit-instructions-expanded">
               
-              <div className="border-b border-slate-150 pb-4">
+              <div className="border-b border-slate-200 pb-4">
                 <h4 className="font-display font-extrabold text-slate-900 text-base flex items-center gap-2">
-                  <NavIcon className="w-5 h-5 text-indigo-700" />
+                  <NavIcon className="w-5 h-5 text-sky-600" />
                   Alternative Route Advisor & Travel Planner
                 </h4>
                 <p className="text-xs text-slate-500 font-medium mt-1 leading-normal font-sans">
@@ -356,12 +364,12 @@ export default function PracticeLocations() {
                     value={userStartLocation}
                     onChange={(e) => setUserStartLocation(e.target.value)}
                     placeholder="e.g. Sandton, Soweto, Centurion, Ezulwini..."
-                    className="w-full bg-white border border-slate-200 focus:border-orange-active rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
+                    className="w-full bg-white border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-orange-active hover:bg-orange-active/90 text-white font-bold text-xs px-5 py-3 rounded-xl transition cursor-pointer shrink-0 flex items-center justify-center gap-1"
+                  className="bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs px-5 py-3 rounded-xl transition cursor-pointer shrink-0 flex items-center justify-center gap-1"
                 >
                   Calculate Access Route
                   <ChevronRight className="w-4 h-4" />
@@ -370,7 +378,7 @@ export default function PracticeLocations() {
 
               {/* Travel Advisory Calculation Output */}
               {routingResult ? (
-                <div className="bg-white border border-slate-300/80 p-5 rounded-2xl shadow-inner space-y-4 animate-fadeIn">
+                <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-inner space-y-4 animate-fadeIn">
                   
                   {/* Results top row */}
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-100 pb-3">
@@ -378,7 +386,7 @@ export default function PracticeLocations() {
                       CALCULATED ROAD ROUTE
                     </span>
                     <span className="text-xs font-mono text-slate-500 font-bold flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-orange-active" />
+                      <Clock className="w-4 h-4 text-sky-600" />
                       EST. ADVISORY TRAVEL TIME: {routingResult.estDuration}
                     </span>
                   </div>
@@ -389,7 +397,7 @@ export default function PracticeLocations() {
 
                   {/* Landmarks highlights */}
                   <div className="pt-2">
-                    <span className="text-[10px] font-mono font-bold text-indigo-700 uppercase tracking-widest block mb-1.5">
+                    <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-widest block mb-1.5">
                       Key Medical & Urban Landmarks to Spot:
                     </span>
                     <div className="flex flex-wrap gap-2">
@@ -403,8 +411,8 @@ export default function PracticeLocations() {
 
                 </div>
               ) : (
-                <div className="bg-slate-50 border border-dashed border-slate-200 p-5 rounded-2xl text-center text-slate-400 text-xs sm:text-sm font-sans">
-                  Enter your local city above (e.g., &ldquo;<strong className="text-slate-600 cursor-pointer hover:underline" onClick={() => setUserStartLocation("Sandton")}>Sandton</strong>&rdquo; or &ldquo;<strong className="text-slate-600 cursor-pointer hover:underline" onClick={() => setUserStartLocation("Ezulwini")}>Ezulwini</strong>&rdquo;) to render specific sessional transit directions instantly.
+                <div className="bg-white border border-dashed border-slate-200 p-5 rounded-2xl text-center text-slate-450 text-xs sm:text-sm font-sans">
+                  Enter your local city above (e.g., &ldquo;<strong className="text-slate-700 cursor-pointer hover:underline" onClick={() => setUserStartLocation("Sandton")}>Sandton</strong>&rdquo; or &ldquo;<strong className="text-slate-700 cursor-pointer hover:underline" onClick={() => setUserStartLocation("Ezulwini")}>Ezulwini</strong>&rdquo;) to render specific sessional transit directions instantly.
                 </div>
               )}
 
@@ -412,7 +420,7 @@ export default function PracticeLocations() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 
                 <div className="p-4 bg-white border border-slate-200 rounded-2xl">
-                  <div className="flex items-center space-x-2 text-indigo-700 font-bold text-xs sm:text-sm mb-2 select-none">
+                  <div className="flex items-center space-x-2 text-sky-600 font-bold text-xs sm:text-sm mb-2 select-none">
                     <Car className="w-4 h-4" />
                     <span>Secure Parking Protocol</span>
                   </div>
@@ -422,7 +430,7 @@ export default function PracticeLocations() {
                 </div>
 
                 <div className="p-4 bg-white border border-slate-200 rounded-2xl">
-                  <div className="flex items-center space-x-2 text-indigo-700 font-bold text-xs sm:text-sm mb-2 select-none">
+                  <div className="flex items-center space-x-2 text-sky-600 font-bold text-xs sm:text-sm mb-2 select-none">
                     <Train className="w-4 h-4" />
                     <span>Transit Connections</span>
                   </div>
@@ -440,6 +448,6 @@ export default function PracticeLocations() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

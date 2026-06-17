@@ -6,41 +6,41 @@
   --font-display: "Outfit", var(--font-sans);
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Custom Color Schemes */
-  --color-cream: #F6F2E8;
-  --color-mint: #95D9C0;
-  --color-orange-active: #FF7A3D;
-  --color-brand-indigo: #667EEA;
-  --color-brand-purple: #3F2B96;
-  --color-brand-peach: #FF9966;
-  --color-brand-rose: #FF5E62;
+  /* Custom Color Schemes - High-Trust / Calming */
+  --color-cream: #f8fafc;
+  --color-mint: #d1fae5;
+  --color-orange-active: #0284c7;
+  --color-brand-indigo: #0284c7;
+  --color-brand-purple: #0f172a;
+  --color-brand-peach: #10b981;
+  --color-brand-rose: #059669;
 }
 
 @utility bg-gradient-brand-indigo {
-  background-image: linear-gradient(135deg, #667EEA 0%, #3F2B96 100%);
+  background-image: linear-gradient(135deg, #0284c7 0%, #10b981 100%);
 }
 
 @utility bg-gradient-brand-sunset {
-  background-image: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
+  background-image: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
 }
 
 @utility text-gradient-brand-indigo {
-  background-image: linear-gradient(135deg, #667EEA 0%, #3F2B96 100%);
+  background-image: linear-gradient(135deg, #0284c7 0%, #10b981 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @utility text-gradient-brand-sunset {
-  background-image: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
+  background-image: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 body {
-  background-color: #F6F2E8;
-  color: #1F2937;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 /* Elegant scrollbar styling */
@@ -48,14 +48,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F6F2E8;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #95D9C0;
+  background: #10b981;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF7A3D;
+  background: #0284c7;
 }
 
 /* Regulatory News Ticker & Interface Transitions */
