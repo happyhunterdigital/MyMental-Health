@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/mymental-health/',
+    base: './', // 👈 Foolproof relative paths: resolves asset 404 errors regardless of repository name casing
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
