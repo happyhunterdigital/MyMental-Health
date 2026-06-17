@@ -1,0 +1,3 @@
+# WHITESPACE & ENCODING STANDARDS 
+Strict Whitespace: Use ONLY standard ASCII space characters (U+0020) for indentation and spacing. Do not use non-breaking spaces or smart quotes.
+JSON Formatting: Always read the target file's indentation (e.g., 2 spaces) and match it exactly before modifying package.json.
