@@ -58,6 +58,71 @@ body {
   background: #0284c7;
 }
 
+/* ============================================
+   CALMING HERO — CSS-Only Mesh Gradient System
+   Replaces @paper-design/shaders-react
+   ============================================ */
+
+/* Primary mesh gradient: slow organic breathing movement */
+@keyframes meshFloat {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+    background-size: 120% 120%, 150% 150%, 100% 100%;
+  }
+  25% {
+    background-position: 30% 70%, 70% 30%, 20% 80%;
+    background-size: 140% 140%, 130% 130%, 120% 120%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 80% 20%;
+    background-size: 130% 130%, 160% 160%, 110% 110%;
+  }
+  75% {
+    background-position: 70% 30%, 30% 70%, 60% 40%;
+    background-size: 150% 150%, 120% 120%, 130% 130%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+    background-size: 120% 120%, 150% 150%, 100% 100%;
+  }
+}
+
+/* Ambient pulsing orb for the decorative element */
+@keyframes pulseOrb {
+  0%, 100% {
+    box-shadow: 0 0 20px 4px rgba(2, 132, 199, 0.3), 0 0 40px 8px rgba(16, 185, 129, 0.15);
+    border-color: rgba(2, 132, 199, 0.5);
+    transform: scale(1);
+  }
+  33% {
+    box-shadow: 0 0 25px 6px rgba(56, 189, 248, 0.35), 0 0 50px 12px rgba(52, 211, 153, 0.2);
+    border-color: rgba(56, 189, 248, 0.6);
+    transform: scale(1.04);
+  }
+  66% {
+    box-shadow: 0 0 22px 5px rgba(16, 185, 129, 0.3), 0 0 45px 10px rgba(2, 132, 199, 0.18);
+    border-color: rgba(16, 185, 129, 0.55);
+    transform: scale(1.02);
+  }
+}
+
+/* Gradient text shimmer for headline */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Wireframe overlay drift for depth layer */
+@keyframes meshWireframe {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
 /* Regulatory News Ticker & Interface Transitions */
 @keyframes marquee {
   0% { transform: translate3d(0, 0, 0); }
@@ -76,6 +141,5 @@ body {
 }
 
 @utility animate-fadeIn {
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.6s ease-in-out forwards;
 }
-
