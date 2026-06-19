@@ -1,7 +1,6 @@
-import { Activity, ShieldCheck, Scale, Award, ArrowRight, CheckCircle2, FileText, HelpCircle, Download } from "lucide-react";
-import { profileMeta } from "../data";
-import { generateDoctorProfilePDF } from "../utils/pdfGenerator";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { ShieldCheck, ArrowRight } from "lucide-react";
 
 interface HeroProps {
   onContactClick: () => void;
@@ -9,258 +8,225 @@ interface HeroProps {
 }
 
 export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
-  return (
-    <section className="relative py-24 lg:py-32 bg-cream px-4 overflow-hidden border-b border-slate-200" id="hero">
-      
-      {/* Soft calming background accents utilizing ocean blue and sage green gradients */}
-      <div className="absolute top-1/4 left-5 w-[450px] h-[450px] bg-mint/40 rounded-full blur-3xl opacity-50 select-none pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl opacity-60 select-none pointer-events-none" />
-      
-      {/* Decorative vector dots grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px] opacity-10 select-none pointer-events-none" />
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState(false);
 
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10">
-        
-        {/* Left Hand: Content Block with Framer Motion */}
-        <motion.div 
-          className="w-full lg:w-3/5 text-left flex flex-col justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ease: "easeInOut", duration: 0.8 }}
-        >
-          
-          {/* Trust Badges */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-6">
-            <span className="inline-flex items-center text-xs font-mono font-bold px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 border border-slate-800 shadow-sm">
-              <Award className="w-4 h-4 mr-1.5 text-emerald-400" />
-              MBChB Clinical Expertise
+  useEffect(() => {
+    const handleMouseEnter = () => setIsActive(true);
+    const handleMouseLeave = () => setIsActive(false);
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("mouseenter", handleMouseEnter);
+      container.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("mouseenter", handleMouseEnter);
+        container.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
+  return (
+    <section ref={containerRef} className="min-h-screen relative overflow-hidden font-sans" id="hero">
+
+      {/* SVG Filters for soft, organic glows */}
+      <svg className="absolute inset-0 w-0 h-0" aria-hidden="true">
+        <defs>
+          <filter id="glass-effect" x="-50%" y="-50%" width="200%" height="200%">
+            <feTurbulence baseFrequency="0.005" numOctaves="1" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.3" />
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0.02
+                      0 1 0 0 0.02
+                      0 0 1 0 0.05
+                      0 0 0 0.9 0"
+              result="tint"
+            />
+          </filter>
+          <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="30%" stopColor="#e0f2fe" />
+            <stop offset="70%" stopColor="#d1fae5" />
+            <stop offset="100%" stopColor="#ffffff" />
+          </linearGradient>
+          <filter id="text-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+      </svg>
+
+      {/* ═══════════════════════════════════════════════════
+          CSS-ONLY MESH GRADIENT BACKGROUND
+          Replaces @paper-design/shaders-react MeshGradient
+          ═══════════════════════════════════════════════════ */}
+
+      {/* Primary animated mesh layer — soft blues, greens, and deep slate */}
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          background: `
+            radial-gradient(ellipse at 20% 50%, rgba(2,132,199,0.55) 0%, transparent 60%),
+            radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.45) 0%, transparent 55%),
+            radial-gradient(ellipse at 60% 80%, rgba(3,105,161,0.5) 0%, transparent 50%)
+          `,
+          backgroundColor: "#0f172a",
+          animation: "meshFloat 25s ease-in-out infinite",
+        }}
+      />
+
+      {/* Secondary depth layer — muted overlay for organic feel */}
+      <div
+        className="absolute inset-0 w-full h-full opacity-30"
+        style={{
+          background: `
+            radial-gradient(ellipse at 70% 60%, rgba(56,189,248,0.4) 0%, transparent 50%),
+            radial-gradient(ellipse at 30% 30%, rgba(52,211,153,0.35) 0%, transparent 45%),
+            radial-gradient(ellipse at 50% 90%, rgba(255,255,255,0.08) 0%, transparent 40%)
+          `,
+          animation: "meshFloat 35s ease-in-out infinite reverse",
+        }}
+      />
+
+      {/* Wireframe overlay for subtle geometric depth */}
+      <div
+        className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+          animation: "meshWireframe 20s linear infinite",
+        }}
+      />
+
+      {/* Grain texture overlay for premium feel */}
+      <div
+        className="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* ═══════════════════════════════
+          HERO CONTENT
+          ═══════════════════════════════ */}
+      <main className="absolute inset-0 z-20 flex items-center justify-start px-8 md:px-16 lg:px-24">
+        <div className="max-w-3xl">
+
+          {/* Trust Badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md mb-8 relative border border-white/10"
+            style={{ filter: "url(#glass-effect)" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span className="text-white/90 text-sm font-medium relative z-10 tracking-wide">
+              Confidential, Compassionate Support
             </span>
-            <span className="inline-flex items-center text-xs font-mono font-bold px-3 py-1.5 rounded-full bg-white text-slate-700 border border-slate-200 shadow-sm">
-              FSCA Authorized: FSP 53666
-            </span>
-            <span className="inline-flex items-center text-xs font-mono font-bold px-3 py-1.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200/50">
-              Contract-Backed Certainty
-            </span>
-          </div>
+          </motion.div>
 
           {/* Headline */}
-          <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none mb-6">
-            Bridging Clinical Delivery &{" "}
-            <span className="text-gradient-brand-indigo font-black">Corporate Risk</span>{" "}
-            Underwriting
-          </h1>
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight font-display"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          >
+            <span className="block font-light text-white/90 text-3xl md:text-5xl mb-3 tracking-wide">
+              Navigating Your Path to
+            </span>
+            <span
+              className="block font-extrabold pb-2"
+              style={{
+                background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 30%, #34d399 70%, #ffffff 100%)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                filter: "url(#text-glow)",
+                animation: "gradientShift 10s linear infinite",
+              }}
+            >
+              Mental Wellness
+            </span>
+            <span className="block font-light text-white/80 text-4xl md:text-6xl mt-1">
+              Together.
+            </span>
+          </motion.h1>
 
-          {/* Executive Intro */}
-          <p className="text-slate-700 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl font-sans">
-            As a veteran General Practitioner (MBChB) and medical indemnity director,{" "}
-            <strong className="text-slate-900 font-extrabold">Dr. Christopher Mushwana</strong>{" "}
-            structures institutional-grade malpractice portfolios that eliminate communication gaps, securing legally binding asset protection in South Africa, Namibia, and Eswatini.
-          </p>
+          {/* Subheadline */}
+          <motion.p
+            className="text-lg md:text-xl font-light text-slate-200 mb-10 leading-relaxed max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
+            Expert legal advocacy and dedicated mental health care practices designed to protect
+            your rights and foster your well-being. A safe space where your story is heard and honored.
+          </motion.p>
 
-          {/* Quick Clear Value Proposition Grid - Emphasizing Safety & Confidentiality */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10 text-slate-700">
-            <div className="flex items-start gap-3">
-              <div className="bg-gradient-brand-indigo p-1 rounded-full shrink-0 shadow-sm mt-0.5">
-                <ShieldCheck className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <strong className="text-sm font-extrabold text-slate-900 block">Rule 41A Mediation-First</strong>
-                <span className="text-xs text-slate-600">Strict clinician consent required for any claim settlement</span>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-3">
-              <div className="bg-gradient-brand-indigo p-1 rounded-full shrink-0 shadow-sm mt-0.5">
-                <ShieldCheck className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <strong className="text-sm font-extrabold text-slate-900 block">HPCSA Section 41 Defense</strong>
-                <span className="text-xs text-slate-600">Immediate specialist panel drafting in the 40-day window</span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="bg-gradient-brand-indigo p-1 rounded-full shrink-0 shadow-sm mt-0.5">
-                <ShieldCheck className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <strong className="text-sm font-extrabold text-slate-900 block">Underwritten by New Era Life</strong>
-                <span className="text-xs text-slate-600">Backed by FSP 2736 with global A-rated reinsurer pools</span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="bg-gradient-brand-indigo p-1 rounded-full shrink-0 shadow-sm mt-0.5">
-                <ShieldCheck className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <strong className="text-sm font-extrabold text-slate-900 block">Labour Court & RWOPS Advice</strong>
-                <span className="text-xs text-slate-600">Defense for sessional state medical officers (Section 30)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Buttons - Color mapped to calming blue/green */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <button
+          {/* CTA Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          >
+            <motion.button
               onClick={onContactClick}
-              className="bg-sky-600 hover:bg-sky-700 text-white font-display font-extrabold px-6 py-4 rounded-xl shadow-lg shadow-sky-600/10 transform hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer text-sm sm:text-base shrink-0"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-sky-900 font-semibold text-sm transition-all duration-300 hover:bg-sky-50 flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl cursor-pointer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Secure Sessional Quote Case
-              <ArrowRight className="w-4 h-4 text-white" />
-            </button>
-            <button
-              onClick={onFaqClick}
-              className="bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-5 py-4 rounded-xl transition-all text-center flex items-center justify-center gap-1.5 shadow-md cursor-pointer border border-slate-800 shrink-0"
+              Request a Consultation
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+
+            <motion.button
+              onClick={() => {
+                const el = document.getElementById("services");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/30 text-white font-medium text-sm transition-all duration-300 hover:bg-white/10 hover:border-white/50 backdrop-blur-sm cursor-pointer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Review FSP FAQ Directory
-              <HelpCircle className="w-4 h-4 text-emerald-400" />
-            </button>
-            <button
-              onClick={generateDoctorProfilePDF}
-              className="bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-sm px-5 py-4 rounded-xl transition-all text-center flex items-center justify-center gap-1.5 shadow-md cursor-pointer border border-slate-200 group shrink-0"
-              title="Download Dr. Christopher Mushwana's verified clinical research, credentials, and malpractice advisory stations in PDF format"
-            >
-              Download Profile PDF
-              <Download className="w-4 h-4 text-sky-600 group-hover:translate-y-0.5 transition-transform" />
-            </button>
-          </div>
-        </motion.div>
+              Explore Practice Areas
+            </motion.button>
+          </motion.div>
+        </div>
+      </main>
 
-        {/* Right Hand: Visual Certificate & Underwriting Terminal Card with Framer Motion */}
-        <motion.div 
-          className="w-full lg:w-2/5 flex justify-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.8, delay: 0.2 }}
-        >
-          <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl p-6 shadow-xl relative overflow-hidden">
-            
-            {/* Visual Header with Calming Blue-Green Stripe */}
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-brand-indigo" />
-            
-            {/* Background geometric accents */}
-            <div className="absolute -top-12 -right-12 w-40 h-40 bg-emerald-500/10 rounded-full blur-xl" />
-            
-            {/* Card Header Status */}
-            <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
-              <div className="flex items-center space-x-2">
-                <span className="flex h-2.5 w-2.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span className="font-mono text-xs text-slate-500 tracking-wider font-extrabold uppercase">
-                  MMHFSP SECURE SHIELD
-                </span>
-              </div>
-              <span className="text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-extrabold">
-                FSP No. 53666
-              </span>
-            </div>
-
-            {/* Clinician Profile Panel */}
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 mb-5 relative">
-              <div className="absolute top-2 right-2">
-                <span className="text-[8px] font-mono bg-slate-900 text-white px-2 py-0.5 rounded-md font-extrabold tracking-widest leading-none">
-                  LICENSED RSA
-                </span>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                {/* Visual Medical-Malpractice Shield Avatar */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-brand-indigo flex flex-col items-center justify-center shrink-0 text-white shadow relative">
-                  <Activity className="w-6 h-6 text-white animate-pulse" />
-                  <div className="absolute -bottom-1 flex items-center justify-center bg-sky-600 rounded-full p-0.5 border-2 border-white">
-                    <ShieldCheck className="w-3.5 h-3.5 text-white" />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-display font-extrabold text-slate-900 text-lg leading-snug">
-                    Christopher Mushwana
-                  </h3>
-                  <p className="text-xs text-sky-600 font-mono font-bold">
-                    MBChB Clinician & Director
-                  </p>
-                  <p className="text-[10px] text-slate-500 font-medium mt-0.5 font-sans">
-                    MyMental Health Consulting (Pty) Ltd
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Standard Corporate Underwriting Assets */}
-            <div className="space-y-3 font-mono text-xs">
-              <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1">
-                Active Liability Channels:
-              </div>
-
-              {/* Channel 1 */}
-              <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 flex items-center justify-between">
-                <div className="flex items-center space-x-2.5">
-                  <ShieldCheck className="w-4.5 h-4.5 text-sky-700" />
-                  <div>
-                    <div className="text-[11px] text-slate-800 font-extrabold">New Era Life Insurance</div>
-                    <div className="text-[9px] text-slate-500">Underwriting Principal • FSP 2736</div>
-                  </div>
-                </div>
-                <div className="text-[10px] text-emerald-600 font-extrabold flex items-center gap-1.5 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  CONNECTED
-                </div>
-              </div>
-
-              {/* Channel 2 */}
-              <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 flex items-center justify-between">
-                <div className="flex items-center space-x-2.5">
-                  <Scale className="w-4.5 h-4.5 text-sky-600" />
-                  <div>
-                    <div className="text-[11px] text-slate-800 font-extrabold">Swiss Re / Munich Re</div>
-                    <div className="text-[9px] text-slate-500">Reinsurance Liquidity Pool</div>
-                  </div>
-                </div>
-                <div className="text-[10px] text-emerald-600 font-extrabold flex items-center gap-1.5 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  SECURED
-                </div>
-              </div>
-
-              {/* Channel 3 */}
-              <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 flex items-center justify-between">
-                <div className="flex items-center space-x-2.5">
-                  <FileText className="w-4.5 h-4.5 text-slate-700" />
-                  <div>
-                    <div className="text-[11px] text-slate-800 font-extrabold">Section 41 Defense Panel</div>
-                    <div className="text-[9px] text-slate-500">Medical Litigation Attorneys</div>
-                  </div>
-                </div>
-                <div className="text-[10px] text-sky-700 font-extrabold flex items-center gap-1.5 bg-sky-50 px-2 py-0.5 rounded border border-sky-100">
-                  <span className="w-1.5 h-1.5 rounded-full bg-sky-600 animate-pulse" />
-                  STANDBY
-                </div>
-              </div>
-            </div>
-
-            {/* Corporate Summary Indicators */}
-            <div className="grid grid-cols-3 gap-2 border-t border-slate-100 pt-4 mt-5 text-center font-mono">
-              <div>
-                <p className="text-[15px] font-black text-slate-900 leading-none">100%</p>
-                <p className="text-[8px] text-slate-500 uppercase tracking-tight mt-1">Contract Certainty</p>
-              </div>
-              <div className="border-x border-slate-100">
-                <p className="text-[15px] font-black text-sky-600 leading-none">R40M</p>
-                <p className="text-[8px] text-slate-500 uppercase tracking-tight mt-1">Mediation Limit</p>
-              </div>
-              <div>
-                <p className="text-[15px] font-black text-slate-900 leading-none">2,500+</p>
-                <p className="text-[8px] text-slate-500 uppercase tracking-tight mt-1">Active Defenses</p>
-              </div>
-            </div>
-
-          </div>
-        </motion.div>
-
+      {/* ══════════════════════════════════════════════════════
+          AMBIENT PULSING ORB — CSS-only
+          Replaces @paper-design/shaders-react PulsingBorder
+          ══════════════════════════════════════════════════════ */}
+      <div className="absolute bottom-10 right-10 z-30 hidden md:block opacity-60">
+        <div className="relative w-24 h-24 flex items-center justify-center">
+          <div
+            className="rounded-full"
+            style={{
+              width: "80px",
+              height: "80px",
+              border: "2px solid rgba(2,132,199,0.5)",
+              background: "radial-gradient(circle at center, rgba(16,185,129,0.12) 0%, rgba(2,132,199,0.06) 50%, transparent 70%)",
+              animation: "pulseOrb 5s ease-in-out infinite",
+            }}
+          />
+        </div>
       </div>
+
     </section>
   );
 }
