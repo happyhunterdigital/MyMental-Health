@@ -132,7 +132,7 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
           >
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span className="text-white/90 text-sm font-medium relative z-10 tracking-wide">
-              Confidential, Compassionate Support
+              FSP No. 53666 | MyMental Health Consulting (Pty) Ltd
             </span>
           </motion.div>
 
@@ -144,7 +144,7 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
             <span className="block font-light text-white/90 text-3xl md:text-5xl mb-3 tracking-wide">
-              Navigating Your Path to
+              Medical Malpractice
             </span>
             <span
               className="block font-extrabold pb-2"
@@ -158,10 +158,10 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
                 animation: "gradientShift 10s linear infinite",
               }}
             >
-              Mental Wellness
+              Insurance Specialist
             </span>
             <span className="block font-light text-white/80 text-4xl md:text-6xl mt-1">
-              Together.
+              Christopher Mushwana
             </span>
           </motion.h1>
 
@@ -172,8 +172,8 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            Expert legal advocacy and dedicated mental health care practices designed to protect
-            your rights and foster your well-being. A safe space where your story is heard and honored.
+            Bridging the complex gap between clinical healthcare delivery and corporate risk management. 
+            Delivering institutional-grade medical malpractice insurance structuring and clinical indemnity solutions.
           </motion.p>
 
           {/* CTA Buttons */}
