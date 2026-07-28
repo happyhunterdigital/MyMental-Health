@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, AlertTriangle, ArrowRight, X, Clock, ShieldAlert, Award, ChevronRight, Sparkles, Building2 } from "lucide-react";
+import { Play, Pause, AlertTriangle, ArrowRight, X, Clock, ShieldAlert, Award, ChevronRight, Building2 } from "lucide-react";
 import { regulatoryUpdates } from "../data";
 import { RegulatoryUpdate } from "../types";
 
@@ -54,16 +54,12 @@ export default function NewsTicker() {
 
         {/* Scrolling News Items Wrapper */}
         <div 
-          className="flex-grow overflow-hidden relative flex items-center py-2 sm:py-2.5 group cursor-pointer"
+          className="flex-grow overflow-hidden relative flex items-center py-2 sm:py-2.5 group"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => {
-            // Only resume if we aren't displaying a modal
             if (!selectedUpdate) {
               setIsPaused(false);
             }
-          }}
-          onClick={(e) => {
-            // Fallback click on ticker items
           }}
         >
           {/* Subtle horizontal gradient overlays for visual fading depth */}
@@ -99,7 +95,7 @@ export default function NewsTicker() {
                 <span className="text-xs sm:text-sm font-bold text-slate-100 group-hover/item:text-orange-active transition-colors select-none font-sans">
                   {upd.title}:
                 </span>
-                <span className="text-xs text-slate-350 select-none text-slate-300 font-sans font-medium whitespace-nowrap max-w-[280px] sm:max-w-none overflow-hidden text-ellipsis">
+                <span className="text-xs text-slate-400 select-none font-sans font-medium whitespace-nowrap max-w-[280px] sm:max-w-none overflow-hidden text-ellipsis">
                   {upd.shortSummary}
                 </span>
 
@@ -131,7 +127,7 @@ export default function NewsTicker() {
                 <span className="text-xs sm:text-sm font-bold text-slate-100 group-hover/item:text-orange-active transition-colors select-none font-sans">
                   {upd.title}:
                 </span>
-                <span className="text-xs text-slate-350 select-none text-slate-300 font-sans font-medium whitespace-nowrap max-w-[280px] sm:max-w-none overflow-hidden text-ellipsis">
+                <span className="text-xs text-slate-400 select-none font-sans font-medium whitespace-nowrap max-w-[280px] sm:max-w-none overflow-hidden text-ellipsis">
                   {upd.shortSummary}
                 </span>
 
@@ -220,7 +216,7 @@ export default function NewsTicker() {
               </div>
 
               {/* High Contrast Informational Fact block */}
-              <div className="bg-cream/70 border border-slate-250 p-4 rounded-2xl flex items-start gap-3.5">
+              <div className="bg-cream/70 border border-slate-200 p-4 rounded-2xl flex items-start gap-3.5">
                 <div className="bg-slate-900 p-1.5 rounded-lg text-mint border border-slate-800 shrink-0 mt-0.5 select-none">
                   <ShieldAlert className="w-4.5 h-4.5 text-mint" />
                 </div>
@@ -257,7 +253,7 @@ export default function NewsTicker() {
 
             {/* Sticky Actions in Modal Footer */}
             <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-3">
-              <span className="text-[10.5px] text-slate-650 text-slate-505 font-medium text-slate-500 font-sans">
+              <span className="text-[10.5px] font-medium text-slate-500 font-sans">
                 Confidential advisory support is issued under FSP License 53666.
               </span>
               <button
@@ -266,12 +262,6 @@ export default function NewsTicker() {
                   const formElement = document.getElementById("contact");
                   if (formElement) {
                     formElement.scrollIntoView({ behavior: "smooth" });
-                    
-                    // Select context automatically if input elements exist
-                    const areaSelect = document.querySelector("select[value]") as HTMLSelectElement;
-                    if (areaSelect) {
-                      // We can pre-populate values!
-                    }
                   }
                 }}
                 className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer"

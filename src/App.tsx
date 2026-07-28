@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import Navigation from "./components/Navigation";
 import NewsTicker from "./components/NewsTicker";
 import Hero from "./components/Hero";
+import AboutUs from "./components/AboutUs";
+import ServicesProducts from "./components/ServicesProducts";
 import PracticeAreas from "./components/PracticeAreas";
 import FAQSection from "./components/FAQSection";
 import Testimonials from "./components/Testimonials";
+import EventGallery from "./components/EventGallery";
 import PracticeLocations from "./components/PracticeLocations";
 import ContactForm from "./components/ContactForm";
 import ThoughtLeadership from "./components/ThoughtLeadership";
@@ -122,6 +125,12 @@ export default function App() {
           onFaqClick={() => scrollToSection("faq")}
         />
 
+        {/* About Us — Firm biography, mission, credentials */}
+        <AboutUs />
+
+        {/* Services & Products — Full service portfolio */}
+        <ServicesProducts />
+
         {/* Practice Portfolios, Bio & Clinical-Legal Skills */}
         <PracticeAreas onContactClick={() => scrollToSection("contact")} />
 
@@ -130,6 +139,9 @@ export default function App() {
 
         {/* Consumer-directed FAQ Directory */}
         <FAQSection />
+
+        {/* Conference & Event Gallery */}
+        <EventGallery />
 
         {/* Chambers & Regional Sessional Rooms map section */}
         <PracticeLocations />

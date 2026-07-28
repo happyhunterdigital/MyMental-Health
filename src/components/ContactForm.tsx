@@ -140,7 +140,7 @@ ${submittedInquiry.fullName}`
               <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight mb-4">
                 Secure Advisor Case Intake
               </h2>
-              <p className="text-slate-605 text-slate-500 text-sm leading-relaxed">
+              <p className="text-slate-500 text-sm leading-relaxed">
                 Connect directly with Dr. Christopher Mushwana to outline clinical malpractice cover requirements, HPCSA compliance audits, or alternative dispute mediation structures.
               </p>
             </div>
@@ -365,7 +365,7 @@ ${submittedInquiry.fullName}`
                 // SUBMITTED CASE / PRIVILEGED EMAIL DRAFT STATE
                 <div className="space-y-6">
                   <div className="flex items-center gap-3.5 border-b border-slate-100 pb-5">
-                    <div className="bg-emerald-50 text-emerald-600 p-2.5 rounded-full border border-emerald-250 shrink-0">
+                    <div className="bg-emerald-50 text-emerald-600 p-2.5 rounded-full border border-emerald-200 shrink-0">
                       <ShieldCheck className="w-6.5 h-6.5 text-emerald-500" />
                     </div>
                     <div>
@@ -417,7 +417,7 @@ ${submittedInquiry.fullName}`
                       </button>
                     </div>
 
-                    <div className="bg-cream border border-slate-250 p-4.5 rounded-2xl font-mono text-slate-800 text-xs leading-relaxed max-h-[220px] overflow-y-auto select-all select-text">
+                    <div className="bg-cream border border-slate-200 p-4.5 rounded-2xl font-mono text-slate-800 text-xs leading-relaxed max-h-[220px] overflow-y-auto select-all select-text">
                       <pre className="whitespace-pre-wrap">{emailDraftText}</pre>
                     </div>
                   </div>
@@ -435,7 +435,7 @@ ${submittedInquiry.fullName}`
                     </a>
                     <button
                       onClick={() => setSubmittedInquiry(null)}
-                      className="border border-slate-250 hover:bg-slate-50 bg-white font-bold text-xs text-slate-700 px-5 py-3 rounded-lg text-center transition cursor-pointer"
+                      className="border border-slate-200 hover:bg-slate-50 bg-white font-bold text-xs text-slate-700 px-5 py-3 rounded-lg text-center transition cursor-pointer"
                     >
                       Log Another Application
                     </button>

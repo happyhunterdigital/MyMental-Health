@@ -52,7 +52,7 @@ export default function FAQSection() {
                 className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isExpanded
                     ? "border-sky-500/50 shadow-lg bg-white/95"
-                    : "border-slate-200 hover:border-slate-350 hover:bg-slate-50/50"
+                    : "border-slate-200 hover:border-slate-300 hover:bg-slate-50/50"
                 }`}
               >
                 {/* Header Question Bar */}
