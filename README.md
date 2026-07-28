@@ -1,20 +1,13 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# MMHFSP — MyMental Health Consulting
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/e21dd999-774d-4b63-8223-da726199a18e
+Medico-Legal Advisory & Indemnity platform for healthcare professionals across South Africa, Namibia, and Eswatini.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js 20+
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Set the `DEEPSEEK_API_KEY` in `.env.local` to your DeepSeek API key
 3. Run the app:
    `npm run dev`

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShieldCheck, Menu, X, Phone, Building } from "lucide-react";
+import { Menu, X, Phone, Building } from "lucide-react";
 import { profileMeta } from "../data";
 
 interface NavigationProps {
@@ -10,11 +10,12 @@ export default function Navigation({ onContactClick }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Executive Biography", href: "#bio" },
-    { name: "Practice Portfolios", href: "#services" },
-    { name: "Expert Endorsements", href: "#testimonials" },
-    { name: "Frequently Asked Questions", href: "#faq" },
-    { name: "Chambers Locations", href: "#locations" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Practitioner Endorsements", href: "#testimonials" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Events", href: "#gallery" },
+    { name: "Chambers", href: "#locations" },
   ];
 
   const handleLinkClick = (href: string) => {
@@ -32,9 +33,11 @@ export default function Navigation({ onContactClick }: NavigationProps) {
           
           {/* Brand Logo & FSP Tag */}
           <div className="flex items-center space-x-3">
-            <div className="bg-slate-900 p-2 rounded-lg border border-emerald-500/40 flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6 text-emerald-400" />
-            </div>
+            <img
+              src="https://res.cloudinary.com/dka0498ns/image/upload/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
+              alt="MMHFSP Logo"
+              className="w-10 h-10 rounded-lg border border-emerald-500/40 object-cover bg-slate-900"
+            />
             <div>
               <div className="flex items-center space-x-2">
                 <span className="font-display font-black text-lg tracking-wider text-slate-900">

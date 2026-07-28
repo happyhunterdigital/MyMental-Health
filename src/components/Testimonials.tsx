@@ -50,7 +50,7 @@ export default function Testimonials() {
                     {test.helpType}
                   </span>
                   {test.verifiedBadge && (
-                    <span className="flex items-center text-[9px] font-mono text-emerald-600 font-extrabold uppercase gap-1 bg-emerald-50 border border-emerald-250 px-2 py-0.5 rounded">
+                    <span className="flex items-center text-[9px] font-mono text-emerald-600 font-extrabold uppercase gap-1 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                       SECURE MEMBER
                     </span>
@@ -58,7 +58,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Core Content */}
-                <p className="text-slate-605 text-slate-600 text-sm italic leading-relaxed font-sans mb-6 select-text">
+                <p className="text-slate-600 text-sm italic leading-relaxed font-sans mb-6 select-text">
                   &ldquo;{test.content}&rdquo;
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function Testimonials() {
           {/* Left: Selector panel styled contractually in charcoal contrast */}
           <div className="lg:col-span-5 bg-slate-900 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col justify-between text-white">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-950 text-emerald-450 border border-slate-850 text-[10px] font-mono font-bold uppercase mb-4 text-emerald-400">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono font-bold uppercase mb-4 text-emerald-400">
                 <Award className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
                 Proven Case Precedents
               </div>
@@ -107,8 +107,8 @@ export default function Testimonials() {
                   onClick={() => setActiveCaseIdx(idx)}
                   className={`w-full text-left p-4 rounded-xl border transition-all cursor-pointer ${
                     activeCaseIdx === idx
-                      ? "bg-slate-950 border-emerald-450 text-white shadow-md shadow-slate-950 border-emerald-450"
-                      : "bg-slate-950/40 border-slate-850 text-slate-400 hover:text-white"
+                      ? "bg-slate-950 border-emerald-400 text-white shadow-md shadow-slate-950 border-emerald-400"
+                      : "bg-slate-950/40 border-slate-800 text-slate-400 hover:text-white"
                   }`}
                 >
                   <div className="flex items-center justify-between">
