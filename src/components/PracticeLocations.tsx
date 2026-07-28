@@ -158,7 +158,7 @@ export default function PracticeLocations() {
                     className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between cursor-pointer ${
                       isActive 
                         ? "bg-slate-900 border-slate-800 text-white shadow-md shadow-slate-900/10"
-                        : "bg-white border-slate-200 text-slate-700 hover:border-slate-350 hover:bg-slate-50"
+                        : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                     }`}
                   >
                     <div className="flex items-center space-x-3 select-none">
@@ -283,7 +283,7 @@ export default function PracticeLocations() {
                 <div className="absolute top-4 right-4 z-20 bg-slate-900/90 backdrop-blur-md text-white border border-slate-800 p-3 rounded-2xl shadow-md max-w-[240px] hidden sm:block select-none pointer-events-none">
                   <div className="flex items-center gap-2">
                     <span className="flex h-2.5 w-2.5 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-450 opacity-75"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                     </span>
                     <span className="text-[10px] font-mono uppercase bg-slate-950 px-1.5 py-0.5 rounded text-white font-extrabold">
@@ -300,7 +300,7 @@ export default function PracticeLocations() {
 
                 {/* Satellite map view disclaimer icon */}
                 <div className="absolute bottom-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-slate-800 p-1.5 rounded-lg text-[9px] font-sans font-bold flex items-center gap-1 border border-slate-200 shadow-sm pointer-events-none select-none">
-                  <Info className="w-3.5 h-3.5 text-sky-650 text-sky-600" />
+                  <Info className="w-3.5 h-3.5 text-sky-600" />
                   Interactive GIS Viewport
                 </div>
               </div>
@@ -402,7 +402,7 @@ export default function PracticeLocations() {
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {routingResult.landmarks.map((lmd, keyIdx) => (
-                        <span key={keyIdx} className="bg-slate-50 border border-slate-150 text-[10.5px] font-sans font-bold text-slate-600 px-2.5 py-1 rounded-md">
+                        <span key={keyIdx} className="bg-slate-50 border border-slate-100 text-[10.5px] font-sans font-bold text-slate-600 px-2.5 py-1 rounded-md">
                           📍 {lmd}
                         </span>
                       ))}
@@ -411,7 +411,7 @@ export default function PracticeLocations() {
 
                 </div>
               ) : (
-                <div className="bg-white border border-dashed border-slate-200 p-5 rounded-2xl text-center text-slate-450 text-xs sm:text-sm font-sans">
+                <div className="bg-white border border-dashed border-slate-200 p-5 rounded-2xl text-center text-slate-400 text-xs sm:text-sm font-sans">
                   Enter your local city above (e.g., &ldquo;<strong className="text-slate-700 cursor-pointer hover:underline" onClick={() => setUserStartLocation("Sandton")}>Sandton</strong>&rdquo; or &ldquo;<strong className="text-slate-700 cursor-pointer hover:underline" onClick={() => setUserStartLocation("Ezulwini")}>Ezulwini</strong>&rdquo;) to render specific sessional transit directions instantly.
                 </div>
               )}

@@ -12,7 +12,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
   return (
-    <footer className="bg-slate-900 text-slate-350 py-16 px-4 font-sans relative border-t-4 border-orange-active" id="brand-footer">
+    <footer className="bg-slate-900 text-slate-300 py-16 px-4 font-sans relative border-t-4 border-orange-active" id="brand-footer">
       
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#2d3748_1px,transparent_1px)] [background-size:20px_20px] opacity-10 select-none pointer-events-none" />
@@ -113,7 +113,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
             <div className="font-display font-bold text-xs text-slate-300 uppercase tracking-wider mb-2">
               Regulatory Newsletter
             </div>
-            <p className="text-xs text-slate-450 text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-400 leading-relaxed">
               Receive crucial sessional updates, POPI directives, and South African medical-legal briefs.
             </p>
 
@@ -166,7 +166,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
             © {new Date().getFullYear()} MyMental Health Consulting (Pty) Ltd • FSP No. 53666 • All Rights Reserved.
           </p>
           <p className="flex items-center gap-1.5 transition">
-            <span className="text-slate-650 hover:text-slate-400 cursor-pointer" onClick={() => setIsPrivacyOpen(true)}>POPIA Audited Compliant</span>
+            <span className="text-slate-600 hover:text-slate-400 cursor-pointer" onClick={() => setIsPrivacyOpen(true)}>POPIA Audited Compliant</span>
             <Heart className="w-3.5 h-3.5 text-orange-active fill-orange-active" />
           </p>
         </div>
@@ -188,7 +188,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
             <div className="h-2 bg-gradient-brand-sunset" />
 
             {/* Title & Close Header bar */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-150 select-none">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 select-none">
               <div className="flex items-center space-x-2">
                 <Shield className="w-5 h-5 text-indigo-700" />
                 <span className="font-display font-black text-slate-900 text-sm tracking-wide">
@@ -244,7 +244,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
             </div>
 
             {/* Action Footer */}
-            <div className="px-6 py-4 bg-slate-50 border-t border-slate-150 flex justify-end">
+            <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-end">
               <button
                 onClick={() => setIsPrivacyOpen(false)}
                 className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-6 py-3 rounded-xl transition-all cursor-pointer"

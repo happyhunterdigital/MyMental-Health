@@ -1,3 +1,4 @@
+import React from "react";
 import { Trash2, FileText, User } from "lucide-react";
 import { ClientInquiry } from "../types";
 
@@ -61,7 +62,7 @@ export default function AdmissionsVault({
           {inquiries.map((inq) => (
             <div
               key={inq.id}
-              className="bg-cream/40 border border-slate-200 p-5 rounded-2xl space-y-3 relative group hover:border-slate-350 transition duration-300"
+              className="bg-cream/40 border border-slate-200 p-5 rounded-2xl space-y-3 relative group hover:border-slate-300 transition duration-300"
             >
               
               {/* Urgency Badge */}
@@ -71,10 +72,10 @@ export default function AdmissionsVault({
                 </span>
                 <span className={`text-[9px] font-mono font-extrabold uppercase px-2.5 py-0.5 rounded-full border ${
                   inq.urgency === "Immediate Dr. Consultation Needed"
-                    ? "bg-rose-50 border-rose-250 text-rose-700"
+                    ? "bg-rose-50 border-rose-200 text-rose-700"
                     : inq.urgency === "High"
-                    ? "bg-amber-100 border-amber-250 text-amber-800"
-                    : "bg-emerald-50 border-emerald-250 text-emerald-700"
+                    ? "bg-amber-100 border-amber-200 text-amber-800"
+                    : "bg-emerald-50 border-emerald-200 text-emerald-700"
                 }`}>
                   {inq.urgency}
                 </span>
@@ -93,11 +94,11 @@ export default function AdmissionsVault({
                 </div>
               </div>
 
-              <p className="text-slate-650 text-slate-700 text-xs sm:text-sm italic leading-relaxed bg-white/70 p-3.5 rounded-xl border border-slate-200/50 select-text">
+              <p className="text-slate-600 text-xs sm:text-sm italic leading-relaxed bg-white/70 p-3.5 rounded-xl border border-slate-200/50 select-text">
                 &ldquo;{inq.message || "Awaiting supplementary documents or direct advisory callback."}&rdquo;
               </p>
 
-              <div className="flex justify-between items-center text-[10px] text-slate-450 font-mono text-slate-450 border-t border-slate-150 pt-2.5">
+              <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono border-t border-slate-100 pt-2.5">
                 <span>Submitted: {new Date(inq.createdAt).toLocaleDateString()}</span>
                 <button
                   onClick={() => handleDeleteInquiry(inq.id)}
