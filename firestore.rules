@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email.lower() == 'chris@mmhfsp.co.za'
+      );
+    }
+
+    // Public read for regulatory documents
+    match /documents/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Client inquiries stored locally only — no Firestore writes from client
+    match /inquiries/{inquiryId} {
+      allow read: if isAdmin();
+      allow create: if false;
+    }
+
+    // Public regulatory content
+    match /public_content/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
