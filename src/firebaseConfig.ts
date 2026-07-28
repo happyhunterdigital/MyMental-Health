@@ -15,12 +15,12 @@ if (!apiKey) {
 }
 
 const firebaseConfig = {
-  apiKey: apiKey || "",
-  authDomain: clean(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN) || "mmhfsp.firebaseapp.com",
-  projectId: projectId || "mmhfsp",
-  storageBucket: clean(import.meta.env.VITE_FIREBASE_STORAGE_BUCKET) || `${projectId || "mmhfsp"}.firebasestorage.app`,
-  messagingSenderId: clean(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID) || "",
-  appId: clean(import.meta.env.VITE_FIREBASE_APP_ID) || ""
+  apiKey: clean(import.meta.env.VITE_FIREBASE_API_KEY) || "AIzaSyDA48qBpdZtqfyM8apoFqcZkEVNwbIoXTQ",
+  authDomain: clean(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN) || "mymental-health-a6aff.firebaseapp.com",
+  projectId: projectId || "mymental-health-a6aff",
+  storageBucket: clean(import.meta.env.VITE_FIREBASE_STORAGE_BUCKET) || "mymental-health-a6aff.firebasestorage.app",
+  messagingSenderId: clean(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID) || "460615736676",
+  appId: clean(import.meta.env.VITE_FIREBASE_APP_ID) || "1:460615736676:web:f78b879d50804e009b6e71"
 };
 
 const app = initializeApp(firebaseConfig);
