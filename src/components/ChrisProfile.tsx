@@ -1,6 +1,7 @@
 import { Shield, MapPin, Clock, Phone, Mail, Building, AlertTriangle, ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { profileMeta, practiceLocations } from "../data";
+import ServiceSelector from "./ServiceSelector";
 
 const defensePortfolios = [
   {
@@ -138,6 +139,9 @@ export default function ProfilePage() {
                   </div>
                 ))}
               </div>
+
+              {/* Service Selector */}
+              <ServiceSelector />
 
               {/* Defense Portfolios */}
               <div className="space-y-3">
