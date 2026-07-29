@@ -64,57 +64,16 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
       </svg>
 
       {/* ═══════════════════════════════════════════════════
-          CSS-ONLY MESH GRADIENT BACKGROUND
-          Replaces @paper-design/shaders-react MeshGradient
+          HERO BACKGROUND — image + gradient overlay
           ═══════════════════════════════════════════════════ */}
-
-      {/* Primary animated mesh layer — soft blues, greens, and deep slate */}
-      <div
-        className="absolute inset-0 w-full h-full"
-        style={{
-          background: `
-            radial-gradient(ellipse at 20% 50%, rgba(2,132,199,0.55) 0%, transparent 60%),
-            radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.45) 0%, transparent 55%),
-            radial-gradient(ellipse at 60% 80%, rgba(3,105,161,0.5) 0%, transparent 50%)
-          `,
-          backgroundColor: "#0f172a",
-          animation: "meshFloat 25s ease-in-out infinite",
-        }}
-      />
-
-      {/* Secondary depth layer — muted overlay for organic feel */}
-      <div
-        className="absolute inset-0 w-full h-full opacity-30"
-        style={{
-          background: `
-            radial-gradient(ellipse at 70% 60%, rgba(56,189,248,0.4) 0%, transparent 50%),
-            radial-gradient(ellipse at 30% 30%, rgba(52,211,153,0.35) 0%, transparent 45%),
-            radial-gradient(ellipse at 50% 90%, rgba(255,255,255,0.08) 0%, transparent 40%)
-          `,
-          animation: "meshFloat 35s ease-in-out infinite reverse",
-        }}
-      />
-
-      {/* Wireframe overlay for subtle geometric depth */}
-      <div
-        className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-          animation: "meshWireframe 20s linear infinite",
-        }}
-      />
-
-      {/* Grain texture overlay for premium feel */}
-      <div
-        className="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E")`,
-        }}
-      />
+      <div className="absolute inset-0 w-full h-full">
+        <img
+          src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg"
+          alt="MyMental Health Consulting"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-900/80" />
+      </div>
 
       {/* ═══════════════════════════════
           HERO CONTENT
