@@ -68,8 +68,8 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
           ═══════════════════════════════════════════════════ */}
       <div className="absolute inset-0 w-full h-full">
         <img
-          src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275402/WhatsApp_Image_2026-07-22_at_15.08.35_pwsu3s.jpg"
-          alt="Dr. Christopher Mushwana"
+          src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg"
+          alt="MyMental Health Consulting"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-slate-900/75" />
