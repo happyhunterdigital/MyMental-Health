@@ -5,11 +5,19 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: './', // 👈 Foolproof relative paths: resolves asset 404 errors regardless of repository name casing
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
+      },
+    },
+    build: {
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          profile: path.resolve(__dirname, 'profile.html'),
+        },
       },
     },
     server: {

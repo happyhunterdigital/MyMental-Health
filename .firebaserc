@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "mymental-health-a6aff"
+  },
+  "targets": {
+    "mymental-health-a6aff": {
+      "hosting": {
+        "main": [
+          "mymental-health-a6aff"
+        ],
+        "profile": [
+          "mymental-health-a6aff-profile"
+        ]
+      }
+    }
   }
 }
