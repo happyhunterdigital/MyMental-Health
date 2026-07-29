@@ -8,7 +8,7 @@ export default function NewsTicker() {
   const [isPaused, setIsPaused] = useState(false);
   
   // Permanent slow duration set to 75s for relaxed editorial reading speed
-  const duration = "75s";
+  const duration = "180s";
 
   const handleOpenAlert = (update: RegulatoryUpdate) => {
     setSelectedUpdate(update);
