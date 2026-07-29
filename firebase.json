@@ -33,7 +33,7 @@
     {
       "target": "profile",
       "public": "dist",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "index.html"],
       "rewrites": [{ "source": "**", "destination": "/profile.html" }],
       "headers": [
         {
