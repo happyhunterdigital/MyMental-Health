@@ -33,13 +33,13 @@ export default function ContactForm() {
       const seed: ClientInquiry[] = [
         {
           id: "seq-101",
-          fullName: "Dr. Thabo Motsumi",
-          practiceName: "Motsumi Obstetric Chambers",
-          role: "Chief Obstetrician Partner",
-          email: "motsumitl@gmail.com",
-          phone: "+27 (0) 73 898 2212",
+          fullName: "Dr. Herman Edeling",
+          practiceName: "SAMLA Medical Mediation Chambers",
+          role: "Medical Mediator",
+          email: "mediation@mmhfsp.co.za",
+          phone: "+27 (0) 12 342 8890",
           interestArea: "Rule 41A Clinical Mediation",
-          message: "We need an assessment of an active maternity risk dispute to see if we can resolve it under Uniform Rule 41A prior to court litigation. Our indemnity broker has suggested a settlement which we do not consent to.",
+          message: "Leading structured alternative dispute resolution under Uniform Rule 41A of the High Court of South Africa. No malpractice claim is settled without the explicit informed consent of the practitioner.",
           createdAt: "2026-06-16T14:24:00Z",
           urgency: "Immediate Dr. Consultation Needed"
         }

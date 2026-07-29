@@ -11,8 +11,9 @@ export default function Navigation({ onContactClick }: NavigationProps) {
 
   const navLinks = [
     { name: "About Us", href: "#about" },
+    { name: "Dr. Mushwana", href: "#profile" },
     { name: "Services", href: "#services" },
-    { name: "Practitioner Endorsements", href: "#testimonials" },
+    { name: "Endorsements", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
     { name: "Events", href: "#gallery" },
     { name: "Chambers", href: "#locations" },

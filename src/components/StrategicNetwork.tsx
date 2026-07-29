@@ -39,7 +39,7 @@ function PartnersCarousel() {
         <motion.div
           className="flex gap-6 shrink-0"
           animate={{ x: [0, -50 * partners.length * 20] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
           onMouseEnter={(e) => { (e.currentTarget.closest(".carousel-wrapper") as HTMLElement)?.style.setProperty("animation-play-state", "paused") }}
           style={{ display: "flex", gap: "1.5rem" }}
         >
@@ -95,7 +95,7 @@ export default function StrategicNetwork() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg"
+              src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event2_cnazx5.jpg"
               alt="MMHFSP Strategic Network"
               className="w-full h-full object-cover"
             />

@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import NewsTicker from "./components/NewsTicker";
 import Hero from "./components/Hero";
 import StrategicNetwork from "./components/StrategicNetwork";
+import ChrisProfile from "./components/ChrisProfile";
 import AboutUs from "./components/AboutUs";
 import ServicesProducts from "./components/ServicesProducts";
 import PracticeAreas from "./components/PracticeAreas";
@@ -128,6 +129,9 @@ export default function App() {
 
         {/* Strategic Network — Partners & Consultants */}
         <StrategicNetwork />
+
+        {/* Dr. Christopher Mushwana — Full Professional Profile */}
+        <ChrisProfile />
 
         {/* About Us — Firm biography, mission, credentials */}
         <AboutUs />

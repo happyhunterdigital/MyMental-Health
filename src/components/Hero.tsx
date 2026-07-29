@@ -68,11 +68,11 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
           ═══════════════════════════════════════════════════ */}
       <div className="absolute inset-0 w-full h-full">
         <img
-          src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg"
-          alt="MyMental Health Consulting"
-          className="w-full h-full object-cover"
+          src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275402/WhatsApp_Image_2026-07-22_at_15.08.35_pwsu3s.jpg"
+          alt="Dr. Christopher Mushwana"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-slate-900/80" />
+        <div className="absolute inset-0 bg-slate-900/75" />
       </div>
 
       {/* ═══════════════════════════════
@@ -97,14 +97,11 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
 
           {/* Headline */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight font-display"
+            className="text-4xl md:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight font-display max-w-3xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="block font-light text-white/90 text-3xl md:text-5xl mb-3 tracking-wide">
-              Medical Malpractice
-            </span>
             <span
               className="block font-extrabold pb-2"
               style={{
@@ -117,10 +114,10 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
                 animation: "gradientShift 10s linear infinite",
               }}
             >
-              Insurance Specialist
+              Protect Everything You Build:
             </span>
-            <span className="block font-light text-white/80 text-4xl md:text-6xl mt-1">
-              Christopher Mushwana
+            <span className="block text-white/90 text-3xl md:text-5xl font-light mt-1">
+              Your Career, Safeguarding Your Future.
             </span>
           </motion.h1>
 
@@ -131,8 +128,7 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            Bridging the complex gap between clinical healthcare delivery and corporate risk management. 
-            Delivering institutional-grade medical malpractice insurance structuring and clinical indemnity solutions.
+            Navigate workplace conflicts, regulatory battles, contract reviews, and personal legal challenges with absolute confidence and 24/7 expert representation.
           </motion.p>
 
           {/* CTA Buttons */}
