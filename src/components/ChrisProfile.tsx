@@ -89,7 +89,16 @@ export default function ProfilePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="font-display font-extrabold text-lg text-slate-900 uppercase tracking-wide">Core Medico-Legal Clinical Defense Portfolios</h2>
+            <div className="flex flex-col lg:flex-row items-start gap-6 mb-6">
+              <img
+                src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275402/WhatsApp_Image_2026-07-22_at_15.08.35_pwsu3s.jpg"
+                alt="Dr. Christopher Mushwana"
+                className="w-full lg:w-64 h-64 object-cover object-center rounded-2xl border border-slate-200 shadow-sm"
+              />
+              <div className="flex-grow">
+                <h2 className="font-display font-extrabold text-lg text-slate-900 uppercase tracking-wide">Core Medico-Legal Clinical Defense Portfolios</h2>
+              </div>
+            </div>
             {defensePortfolios.map((p, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-sky-500/30 hover:shadow-md transition-all">
                 <h3 className="font-display font-bold text-slate-900 text-sm">{p.title}</h3>
