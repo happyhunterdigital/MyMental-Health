@@ -70,7 +70,7 @@ export default function Hero({ onContactClick, onFaqClick }: HeroProps) {
         <img
           src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg"
           alt="MyMental Health Consulting"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[center_25%]"
         />
         <div className="absolute inset-0 bg-slate-900/75" />
       </div>
