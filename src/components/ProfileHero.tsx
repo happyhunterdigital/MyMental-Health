@@ -15,7 +15,7 @@ const partners = [
 
 export default function ProfileHero() {
   return (
-    <div className="relative min-h-[60vh] md:min-h-[70vh] flex flex-col overflow-hidden bg-surface-cream">
+    <div className="relative min-h-[80vh] md:min-h-[90vh] flex flex-col overflow-hidden bg-surface-cream">
       {/* Video background */}
       <div className="absolute inset-0 z-0">
         <video
