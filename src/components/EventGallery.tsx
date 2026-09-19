@@ -3,13 +3,13 @@ import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import { motion } from "framer-motion";
 
 const eventImages = [
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275218/MyMental-Health-logo-Event3_rjcnmq.jpg",
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg",
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275216/MyMental_Health_Consultancy_Event6_hfkqdy.jpg",
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275216/MyMental_Health_Consultancy_Event4_xfhihs.jpg",
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275216/mymental_health_envent4_b9kyln.jpg",
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275215/MyMental_Health_Consultancy_Event2_ua3htn.jpg",
-  "https://res.cloudinary.com/dka0498ns/image/upload/v1785275215/MyMental_Health_Consultancy_Event1_bvwtih.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275218/MyMental-Health-logo-Event3_rjcnmq.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275217/MyMental-Health-logo-Event_ey5rat.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275216/MyMental_Health_Consultancy_Event6_hfkqdy.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275216/MyMental_Health_Consultancy_Event4_xfhihs.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275216/mymental_health_envent4_b9kyln.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275215/MyMental_Health_Consultancy_Event2_ua3htn.jpg",
+  "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275215/MyMental_Health_Consultancy_Event1_bvwtih.jpg",
 ];
 
 export default function EventGallery() {
@@ -55,9 +55,10 @@ export default function EventGallery() {
             >
               <img
                 src={src}
-                alt={`MMHFSP Event ${idx + 1}`}
+                alt={`Dr. Christopher Mushwana engaging healthcare professionals at MMHFSP medico-legal event ${idx + 1} of ${eventImages.length}`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-300" />
             </button>
@@ -93,7 +94,7 @@ export default function EventGallery() {
 
           <img
             src={eventImages[lightbox]}
-            alt={`MMHFSP Event ${lightbox + 1}`}
+            alt={`Dr. Christopher Mushwana at MMHFSP medico-legal event ${lightbox + 1} of ${eventImages.length} — enlarged view`}
             className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />

@@ -19,6 +19,12 @@ export default function ContactForm() {
   const [submittedInquiry, setSubmittedInquiry] = useState<ClientInquiry | null>(null);
   const [copiedDraft, setCopiedDraft] = useState(false);
 
+  // Inline validation errors, spam honeypot + time-trap
+  const [errors, setErrors] = useState<{ fullName?: string; email?: string; phone?: string; consent?: string }>({});
+  const [consent, setConsent] = useState(false);
+  const [website, setWebsite] = useState(""); // honeypot — must stay empty
+  const [formLoadedAt] = useState<number>(() => Date.now());
+
   // Load inquiries on mount
   useEffect(() => {
     const saved = localStorage.getItem("mmhfsp_inquiries");
@@ -51,14 +57,29 @@ export default function ContactForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!fullName || !email || !phone) {
-      alert("Please fill in all mandatory fields.");
+
+    // Spam defenses: honeypot + time-trap (note: client-side only; pair with
+    // Firebase App Check + server-side rules for production enforcement).
+    if (website.trim() !== "") return; // bot filled honeypot — silently drop
+    if (Date.now() - formLoadedAt < 3000) {
+      setErrors({ fullName: "Please take a moment to complete the form before submitting." });
       return;
     }
 
-    // Defensive input sanitization: trim and lowercase
+    const nextErrors: typeof errors = {};
     const cleanEmail = email.toLowerCase().trim();
     const cleanFullName = fullName.trim();
+    const cleanPhone = phone.trim();
+
+    if (cleanFullName.length < 2) nextErrors.fullName = "Please enter your full name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) nextErrors.email = "Enter a valid email address (e.g. you@practice.co.za).";
+    // SA-friendly telephone validation: allow +, spaces, brackets, dashes; 7–15 digits
+    const digits = cleanPhone.replace(/\D/g, "");
+    if (digits.length < 7 || digits.length > 15) nextErrors.phone = "Enter a valid phone number (7–15 digits, e.g. +27 73 487 0620).";
+    if (!consent) nextErrors.consent = "POPIA consent is required before we may process your details.";
+
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) return;
     const cleanPracticeName = practiceName.trim();
     const cleanMessage = message.trim();
 
@@ -68,7 +89,7 @@ export default function ContactForm() {
       practiceName: cleanPracticeName || "Private Medical Practice",
       role,
       email: cleanEmail,
-      phone,
+      phone: cleanPhone,
       interestArea,
       message: cleanMessage,
       createdAt: new Date().toISOString(),
@@ -89,6 +110,8 @@ export default function ContactForm() {
     setPhone("");
     setMessage("");
     setUrgency("Normal");
+    setConsent(false);
+    setErrors({});
   };
 
   const handleDeleteInquiry = (id: string) => {
@@ -208,7 +231,21 @@ ${submittedInquiry.fullName}`
               
               {!submittedInquiry ? (
                 // INPUT FORM STATE
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  {/* Honeypot anti-spam field — hidden from humans, bots fill it */}
+                  <div className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden" aria-hidden="true">
+                    <label>
+                      Website
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </label>
+                  </div>
                   <div className="border-b border-slate-100 pb-4.5 mb-2.5">
                     <h3 className="font-display font-extrabold text-xl text-slate-900">
                       Practice Underwriting & Case Assessment Intake
@@ -226,11 +263,20 @@ ${submittedInquiry.fullName}`
                       <input
                         type="text"
                         required
+                        minLength={2}
+                        autoComplete="name"
                         placeholder="e.g. Dr. Thabo Motsumi"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
+                        aria-invalid={errors.fullName ? true : undefined}
+                        aria-describedby={errors.fullName ? "err-fullName" : undefined}
                         className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
+                      {errors.fullName && (
+                        <p id="err-fullName" role="alert" className="text-xs text-rose-600 font-semibold mt-1.5">
+                          {errors.fullName}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -291,11 +337,19 @@ ${submittedInquiry.fullName}`
                       <input
                         type="email"
                         required
+                        autoComplete="email"
                         placeholder="e.g. physician@chambers.co.za"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        aria-invalid={errors.email ? true : undefined}
+                        aria-describedby={errors.email ? "err-email" : undefined}
                         className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
+                      {errors.email && (
+                        <p id="err-email" role="alert" className="text-xs text-rose-600 font-semibold mt-1.5">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -305,11 +359,21 @@ ${submittedInquiry.fullName}`
                       <input
                         type="tel"
                         required
+                        autoComplete="tel"
+                        inputMode="tel"
+                        pattern="^[+0-9][0-9 ()-]{6,20}$"
                         placeholder="e.g. +27 (0) 73 125 4488"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
+                        aria-invalid={errors.phone ? true : undefined}
+                        aria-describedby={errors.phone ? "err-phone" : undefined}
                         className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors"
                       />
+                      {errors.phone && (
+                        <p id="err-phone" role="alert" className="text-xs text-rose-600 font-semibold mt-1.5">
+                          {errors.phone}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -351,6 +415,30 @@ ${submittedInquiry.fullName}`
                       placeholder="Outline any active HPCSA complaints, RWOPS notices, or sessional coverage details..."
                       className="w-full bg-slate-50/50 border border-slate-200 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 rounded-xl py-2.5 px-4 text-slate-800 text-sm focus:outline-none transition-colors resize-none"
                     />
+                  </div>
+
+                  <div>
+                    <label className="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
+                        aria-describedby={errors.consent ? "err-consent" : undefined}
+                        className="mt-0.5 w-4 h-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500 cursor-pointer"
+                      />
+                      <span>
+                        I consent to MMHFSP processing my details for this enquiry per the{" "}
+                        <a href="/privacy" className="text-sky-700 font-semibold underline underline-offset-2">
+                          Privacy Policy
+                        </a>{" "}
+                        (POPIA). <span className="text-sky-600 font-bold">*</span>
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <p id="err-consent" role="alert" className="text-xs text-rose-600 font-semibold mt-1.5">
+                        {errors.consent}
+                      </p>
+                    )}
                   </div>
 
                   <button

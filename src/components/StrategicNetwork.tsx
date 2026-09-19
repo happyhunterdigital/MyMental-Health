@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { profileMeta } from "../data";
 
 const partners = [
-  { name: "Santam", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281225/Santam_ff5bid.jpg" },
-  { name: "SAFIRE", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281225/SAFIRE_y4rlep.jpg" },
-  { name: "PPS", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281224/pps_wsiu5u.jpg" },
-  { name: "Old Mutual", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281223/Old-Mutual_m6m9px.jpg" },
-  { name: "MiWay", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281223/MIWAY_zu5cc6.jpg" },
-  { name: "Kedari", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281223/KEDARI_gfoeut.jpg" },
-  { name: "Hollard", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281222/hollard_reb4yg.jpg" },
-  { name: "Generic", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281221/Genric_okwxau.jpg" },
-  { name: "Allan Gray", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/Allan-Gray_ahkzs8.jpg" },
-  { name: "Clientele", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/Clientele_ny7ugn.jpg" },
-  { name: "Aluma Capital", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/Aluma-Capital_bueoyw.jpg" },
-  { name: "1-Life", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/1-life_zhvb7x.jpg" },
+  { name: "Santam", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281225/Santam_ff5bid.jpg" },
+  { name: "SAFIRE", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281225/SAFIRE_y4rlep.jpg" },
+  { name: "PPS", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281224/pps_wsiu5u.jpg" },
+  { name: "Old Mutual", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281223/Old-Mutual_m6m9px.jpg" },
+  { name: "MiWay", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281223/MIWAY_zu5cc6.jpg" },
+  { name: "Kedari", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281223/KEDARI_gfoeut.jpg" },
+  { name: "Hollard", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281222/hollard_reb4yg.jpg" },
+  { name: "Generic", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281221/Genric_okwxau.jpg" },
+  { name: "Allan Gray", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/Allan-Gray_ahkzs8.jpg" },
+  { name: "Clientele", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/Clientele_ny7ugn.jpg" },
+  { name: "Aluma Capital", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/Aluma-Capital_bueoyw.jpg" },
+  { name: "1-Life", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/1-life_zhvb7x.jpg" },
 ];
 
 const consultants = [
@@ -48,7 +48,7 @@ function PartnersCarousel() {
               key={`${p.name}-${i}`}
               className="bg-white/70 backdrop-blur-md border border-slate-200/60 rounded-2xl w-[200px] h-[90px] flex items-center justify-center p-5 shrink-0 grayscale hover:grayscale-0 hover:-translate-y-2 hover:shadow-xl hover:border-sky-500/30 transition-all duration-500 cursor-default"
             >
-              <img src={p.src} alt={p.name} className="max-w-full max-h-full object-contain" loading="lazy" />
+              <img src={p.src} alt={`${p.name} — MMHFSP strategic insurer partner logo`} className="max-w-full max-h-full object-contain" loading="lazy" decoding="async" />
             </div>
           ))}
         </motion.div>
@@ -95,9 +95,11 @@ export default function StrategicNetwork() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275217/MyMental-Health-logo-Event2_cnazx5.jpg"
-              alt="MMHFSP Strategic Network"
+              src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_1200/v1785275217/MyMental-Health-logo-Event2_cnazx5.jpg"
+              alt="MMHFSP team at an industry medico-legal conference — strategic network engagements"
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">

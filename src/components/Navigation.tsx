@@ -34,9 +34,12 @@ export default function Navigation({ onContactClick }: NavigationProps) {
           {/* Brand Logo & FSP Tag */}
           <div className="flex items-center space-x-3">
             <img
-              src="https://res.cloudinary.com/dka0498ns/image/upload/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
-              alt="MMHFSP Logo"
+              src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_128/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
+              alt="MMHFSP — MyMental Health Consulting (FSP 53666) logo"
               className="w-10 h-10 rounded-lg border border-emerald-500/40 object-cover bg-slate-900"
+              width={40}
+              height={40}
+              decoding="async"
             />
             <div>
               <div className="flex items-center space-x-2">

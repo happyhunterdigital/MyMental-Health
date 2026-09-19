@@ -14,12 +14,34 @@ import PracticeLocations from "./components/PracticeLocations";
 import ContactForm from "./components/ContactForm";
 import ThoughtLeadership from "./components/ThoughtLeadership";
 import Footer from "./components/Footer";
+import CookieConsent from "./components/CookieConsent";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import NotFound from "./pages/NotFound";
 import { masterJsonLd } from "./data";
+
+function getRoute(): "home" | "privacy" | "terms" | "404" {
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/") return "home";
+  if (path === "/privacy") return "privacy";
+  if (path === "/terms") return "terms";
+  return "404";
+}
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isAppLoading, setIsAppLoading] = useState(true);
+  const [route, setRoute] = useState<"home" | "privacy" | "terms" | "404">(() =>
+    typeof window !== "undefined" ? getRoute() : "home"
+  );
+
+  // SPA back/forward support for /privacy, /terms, 404
+  useEffect(() => {
+    const onPop = () => setRoute(getRoute());
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   // Pre-loader fallback timeout guarantees rendering
   useEffect(() => {
@@ -31,6 +53,7 @@ export default function App() {
 
   // Safe query parameter parsing & validation
   useEffect(() => {
+    if (route !== "home") return;
     try {
       const params = new URLSearchParams(window.location.search);
       const targetSection = params.get("section");
@@ -43,7 +66,7 @@ export default function App() {
     } catch (e) {
       console.error("Query parameter validation failed", e);
     }
-  }, []);
+  }, [route, isAppLoading]);
 
   // Monitor scroll height and calculate scroll progress
   useEffect(() => {
@@ -92,6 +115,33 @@ export default function App() {
       <div className="min-h-screen flex items-center justify-center bg-slate-900">
         <Loader2 className="w-8 h-8 text-sky-500 animate-spin" />
       </div>
+    );
+  }
+
+  if (route === "privacy") {
+    return (
+      <>
+        <PrivacyPolicy />
+        <CookieConsent />
+      </>
+    );
+  }
+
+  if (route === "terms") {
+    return (
+      <>
+        <TermsOfService />
+        <CookieConsent />
+      </>
+    );
+  }
+
+  if (route === "404") {
+    return (
+      <>
+        <NotFound />
+        <CookieConsent />
+      </>
     );
   }
 
@@ -159,6 +209,18 @@ export default function App() {
       </main>
 
       <Footer scrollToSection={scrollToSection} />
+
+      <CookieConsent />
+
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Scroll to top"
+          className="fixed bottom-6 right-6 z-[99990] p-3 rounded-full bg-slate-900 text-emerald-400 shadow-xl hover:bg-slate-800 transition cursor-pointer"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
 
     </div>
   );

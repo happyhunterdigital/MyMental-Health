@@ -27,9 +27,13 @@ export default function Footer({ scrollToSection }: FooterProps) {
           <div className="md:col-span-4 space-y-4">
             <div className="flex items-center space-x-2.5">
               <img
-                src="https://res.cloudinary.com/dka0498ns/image/upload/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
-                alt="MMHFSP Logo"
+                src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_128/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
+                alt="MMHFSP — MyMental Health Consulting (FSP 53666) logo"
                 className="w-10 h-10 rounded-lg border border-mint/40 object-cover bg-slate-950"
+                width={40}
+                height={40}
+                loading="lazy"
+                decoding="async"
               />
               <div>
                 <span className="font-display font-extrabold text-xl text-white tracking-widest block leading-none">
@@ -114,6 +118,22 @@ export default function Footer({ scrollToSection }: FooterProps) {
               Documents
             </div>
             <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href="/privacy"
+                  className="text-mint hover:text-orange-active transition font-bold text-left block"
+                >
+                  Privacy Policy (routable)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms"
+                  className="text-mint hover:text-orange-active transition font-bold text-left block"
+                >
+                  Terms of Service (routable)
+                </a>
+              </li>
               {([
                 { key: "privacy", label: "Privacy Policy" },
                 { key: "fsp", label: "FSP 53666 Disclosure" },
