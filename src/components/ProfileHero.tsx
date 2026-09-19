@@ -1,16 +1,16 @@
 const partners = [
-  { name: "Santam", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281225/Santam_ff5bid.jpg" },
-  { name: "SAFIRE", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281225/SAFIRE_y4rlep.jpg" },
-  { name: "PPS", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281224/pps_wsiu5u.jpg" },
-  { name: "Old Mutual", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281223/Old-Mutual_m6m9px.jpg" },
-  { name: "MiWay", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281223/MIWAY_zu5cc6.jpg" },
-  { name: "Kedari", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281223/KEDARI_gfoeut.jpg" },
-  { name: "Hollard", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281222/hollard_reb4yg.jpg" },
-  { name: "Generic", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281221/Genric_okwxau.jpg" },
-  { name: "Allan Gray", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/Allan-Gray_ahkzs8.jpg" },
-  { name: "Clientele", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/Clientele_ny7ugn.jpg" },
-  { name: "Aluma Capital", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/Aluma-Capital_bueoyw.jpg" },
-  { name: "1-Life", src: "https://res.cloudinary.com/dka0498ns/image/upload/v1785281220/1-life_zhvb7x.jpg" },
+  { name: "Santam", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281225/Santam_ff5bid.jpg" },
+  { name: "SAFIRE", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281225/SAFIRE_y4rlep.jpg" },
+  { name: "PPS", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281224/pps_wsiu5u.jpg" },
+  { name: "Old Mutual", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281223/Old-Mutual_m6m9px.jpg" },
+  { name: "MiWay", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281223/MIWAY_zu5cc6.jpg" },
+  { name: "Kedari", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281223/KEDARI_gfoeut.jpg" },
+  { name: "Hollard", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281222/hollard_reb4yg.jpg" },
+  { name: "Generic", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281221/Genric_okwxau.jpg" },
+  { name: "Allan Gray", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/Allan-Gray_ahkzs8.jpg" },
+  { name: "Clientele", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/Clientele_ny7ugn.jpg" },
+  { name: "Aluma Capital", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/Aluma-Capital_bueoyw.jpg" },
+  { name: "1-Life", src: "https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_400/v1785281220/1-life_zhvb7x.jpg" },
 ];
 
 export default function ProfileHero() {
@@ -35,12 +35,15 @@ export default function ProfileHero() {
       {/* Navigation */}
       <nav className="flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 z-50">
         <img
-          src="https://res.cloudinary.com/dka0498ns/image/upload/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
-          alt="MMHFSP"
+          src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_128/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
+          alt="MMHFSP — MyMental Health Consulting (FSP 53666) logo"
           className="w-8 h-8 rounded-full border border-white/20 object-cover"
+          width={32}
+          height={32}
+          decoding="async"
         />
         <a
-          href="https://mymental-health-a6aff.web.app"
+          href="/"
           className="text-white hover:text-sky-200 text-xs font-mono font-bold transition-colors bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-full"
         >
           Back to Main Site
@@ -59,7 +62,7 @@ export default function ProfileHero() {
         >
           {[...partners, ...partners].map((p, i) => (
             <div key={`${p.name}-${i}`} className="flex-shrink-0 w-32 h-14 sm:w-40 sm:h-16 bg-white rounded-xl flex items-center justify-center border border-slate-100 hover:shadow-md transition-shadow">
-              <img src={p.src} alt={p.name} className="max-w-[75%] max-h-[65%] object-contain" loading="lazy" />
+              <img src={p.src} alt={`${p.name} — MMHFSP strategic insurer partner logo`} className="max-w-[75%] max-h-[65%] object-contain" loading="lazy" decoding="async" />
             </div>
           ))}
         </div>

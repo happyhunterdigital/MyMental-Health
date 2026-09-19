@@ -94,9 +94,11 @@ export default function ProfilePage() {
               <div className="lg:col-span-2">
                 <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm h-full">
                   <img
-                    src="https://res.cloudinary.com/dka0498ns/image/upload/v1785275402/WhatsApp_Image_2026-07-22_at_15.08.35_pwsu3s.jpg"
-                    alt="Dr. Christopher Mushwana"
+                    src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275402/WhatsApp_Image_2026-07-22_at_15.08.35_pwsu3s.jpg"
+                    alt="Dr. Christopher Mushwana (MBChB), Key Individual of MMHFSP (FSP 53666)"
                     className="w-full h-full object-cover object-center min-h-[400px]"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
