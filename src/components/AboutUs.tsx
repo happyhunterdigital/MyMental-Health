@@ -1,115 +1,132 @@
-import { Shield, Scale, FileCheck, Users, Heart } from "lucide-react";
+import { Scale, FileCheck, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { profileMeta } from "../data";
 
 export default function AboutUs() {
   return (
-    <motion.section
-      className="py-24 bg-white px-4 text-slate-800 scroll-mt-20 border-b border-slate-200"
-      id="about"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ ease: "easeInOut", duration: 0.8 }}
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <Users className="w-4 h-4 text-emerald-400" />
-            About Our Firm
-          </div>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-4">
-            Who We Are
-          </h2>
-          <p className="text-slate-500 text-sm leading-relaxed font-sans">
+    <section className="py-28 sm:py-36 bg-white" id="about">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        
+        {/* Section Header — Left-aligned, editorial */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-20"
+        >
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
+            About the Firm
+          </span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-[1.1] max-w-2xl">
             {profileMeta.headline}
-          </p>
-        </div>
+          </h2>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 space-y-4">
-              <h3 className="font-display font-extrabold text-xl text-slate-900">
-                {profileMeta.fullName}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {profileMeta.credentials.map((cred, i) => (
-                  <span key={i} className="text-[10px] font-mono font-bold bg-slate-900 text-emerald-400 px-3 py-1 rounded-full uppercase">
-                    {cred}
-                  </span>
-                ))}
+        {/* Asymmetric Grid: 5/7 split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+          
+          {/* Left Column (5 cols): Profile + Mission */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-6"
+          >
+            {/* Profile Card */}
+            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-7 space-y-5">
+              <div>
+                <p className="font-display font-bold text-lg text-slate-900">
+                  {profileMeta.fullName}
+                </p>
+                <div className="flex items-center gap-2 mt-3">
+                  {profileMeta.credentials.map((cred, i) => (
+                    <span key={i} className="text-[10px] font-mono font-medium text-slate-500 tracking-wide">
+                      {i > 0 && <span className="mr-2 text-slate-300">/</span>}
+                      {cred}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed font-sans">
+              <div className="h-px bg-slate-200" />
+              <p className="text-slate-500 text-sm leading-relaxed">
                 {profileMeta.bioIntro}
               </p>
             </div>
 
-            <div className="bg-gradient-brand-indigo text-white rounded-3xl p-8 space-y-4">
-              <h3 className="font-display font-extrabold text-xl">Our Mission</h3>
-              <p className="text-sm leading-relaxed font-sans text-white/90">
-                To provide South African, Namibian, and Eswatini healthcare professionals with contractually guaranteed, non-discretionary legal insurance and professional malpractice indemnity — bridging the critical gap between clinical delivery and corporate risk underwriting.
+            {/* Mission Block */}
+            <div className="bg-slate-900 text-white rounded-2xl p-7 space-y-4">
+              <h3 className="font-display font-bold text-sm tracking-wide uppercase text-white/60">
+                Our Mission
+              </h3>
+              <p className="text-sm leading-relaxed text-white/80">
+                To provide South African healthcare professionals with contractually guaranteed, non-discretionary legal insurance and professional malpractice indemnity — bridging the critical gap between clinical delivery and corporate risk underwriting.
               </p>
-              <div className="flex items-center gap-3 pt-2">
-                <span className="text-[10px] font-mono font-black bg-white/15 px-3 py-1.5 rounded-full uppercase">
-                  FSP License {profileMeta.fspLicense}
-                </span>
-                <span className="text-[10px] font-mono font-black bg-white/15 px-3 py-1.5 rounded-full uppercase">
-                  Underwritten by {profileMeta.underwriterName}
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-[10px] font-mono font-medium text-white/40">
+                  FSP {profileMeta.fspLicense}
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="space-y-5">
+          {/* Right Column (7 cols): Capabilities + Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-5"
+          >
             {[
-              {
-                icon: Shield,
-                title: "Contract-Backed Protection",
-                desc: "Unlike mutual defense organizations offering discretionary cover, MMHFSP provides legally binding, non-discretionary insurance contracts.",
-              },
               {
                 icon: Scale,
                 title: "Clinical-Legal Translation",
-                desc: `${profileMeta.bioDetailed}`,
+                desc: profileMeta.bioDetailed,
               },
               {
                 icon: FileCheck,
                 title: "FSCA-Regulated Compliance",
-                desc: `Operating under FSP License ${profileMeta.fspLicense}, administered through ${profileMeta.underwriterName} (FSP ${profileMeta.underwriterFsp}), with reinsurance backstops from Swiss Re and Munich Re.`,
+                desc: `Operating under FSP License ${profileMeta.fspLicense}, with reinsurance backstops from major global reinsurers.`,
               },
               {
                 icon: Heart,
                 title: "Practitioner-First Philosophy",
-                desc: "No malpractice claim is ever settled without the explicit, informed, and written consent of the doctor. Your reputation matters as much as your indemnity.",
+                desc: "Healthcare professionals' mental health matters. Whether it is an audit inquiry by the medical aids or a demanding letter from attorneys requesting clinical records, we take care of all communications to ensure your responses are in the legal framework whilst you continue with your clinical practice.",
               },
             ].map((item, idx) => (
-              <div key={idx} className="flex items-start gap-4 p-5 bg-white border border-slate-200 rounded-2xl hover:border-sky-500/40 hover:shadow-md transition-all duration-300">
-                <div className="p-3 bg-slate-900 rounded-xl shrink-0">
-                  <item.icon className="w-5 h-5 text-emerald-400" />
+              <div
+                key={idx}
+                className="group flex items-start gap-5 p-6 bg-white border border-slate-100 rounded-2xl hover:border-slate-200 hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-500"
+              >
+                <div className="p-2.5 bg-slate-50 border border-slate-100 rounded-xl shrink-0 group-hover:bg-slate-900 group-hover:border-slate-900 transition-colors duration-500">
+                  <item.icon className="w-4.5 h-4.5 text-slate-400 group-hover:text-emerald-400 transition-colors duration-500" />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-slate-900 text-sm mb-1">{item.title}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed font-sans">{item.desc}</p>
+                  <h4 className="font-display font-semibold text-slate-900 text-sm mb-1.5">{item.title}</h4>
+                  <p className="text-[13px] text-slate-400 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { stat: "15+", label: "Years Clinical Practice" },
-            { stat: "FSP 53666", label: "Authorized Provider" },
-            { stat: "3", label: "Countries Served" },
-            { stat: "R125M", label: "Indemnity Pool Capacity" },
-          ].map((s) => (
-            <div key={s.label} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:border-emerald-400/40 transition-all duration-300">
-              <span className="font-display font-black text-3xl text-sky-600 block">{s.stat}</span>
-              <span className="text-xs text-slate-500 font-mono uppercase tracking-wider mt-2 block">{s.label}</span>
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+              {[
+                { stat: "15+", label: "Years Practice" },
+                { stat: "FSP 53666", label: "Licensed Provider" },
+                { stat: "1", label: "Country Served" },
+                { stat: "R125M", label: "Indemnity Pool" },
+              ].map((s) => (
+                <div key={s.label} className="text-center py-5 border border-slate-100 rounded-xl">
+                  <span className="font-display font-bold text-xl text-slate-900 block">{s.stat}</span>
+                  <span className="text-[10px] text-slate-400 font-mono uppercase tracking-wider mt-1.5 block">{s.label}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

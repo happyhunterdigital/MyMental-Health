@@ -65,13 +65,12 @@ export default function AdmissionsVault({
               className="bg-cream/40 border border-slate-200 p-5 rounded-2xl space-y-3 relative group hover:border-slate-300 transition duration-300"
             >
               
-              {/* Urgency Badge */}
               <div className="flex justify-between items-start">
                 <span className="text-[10px] font-mono font-extrabold text-slate-500 bg-white border border-slate-200 px-2 py-0.5 rounded shadow-sm">
                   Case FILE ID: {inq.id}
                 </span>
-                <span className={`text-[9px] font-mono font-extrabold uppercase px-2.5 py-0.5 rounded-full border ${
-                  inq.urgency === "Immediate Dr. Consultation Needed"
+                <span className={`text-[9px] font-mono font-extrabold uppercase px-2.5 py-0.5 rounded border ${
+                  inq.urgency === "Immediate Consultation Needed"
                     ? "bg-rose-50 border-rose-200 text-rose-700"
                     : inq.urgency === "High"
                     ? "bg-amber-100 border-amber-200 text-amber-800"
@@ -83,11 +82,11 @@ export default function AdmissionsVault({
 
               <div className="space-y-1">
                 <h4 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                  <User className="w-4.5 h-4.5 text-sky-600 bg-white shadow-sm p-1 rounded-full border" />
+                  <User className="w-4.5 h-4.5 text-sky-600 bg-white shadow-sm p-1 rounded border border-slate-200" />
                   {inq.fullName}
                 </h4>
                 <div className="text-xs text-slate-500 font-bold">
-                  {inq.role} • <span className="text-slate-900">{inq.practiceName}</span>
+                  {inq.role} &bull; <span className="text-slate-900">{inq.practiceName}</span>
                 </div>
                 <div className="text-xs text-slate-600 font-medium">
                   Focus: <span className="text-sky-600 font-extrabold">{inq.interestArea}</span>

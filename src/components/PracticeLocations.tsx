@@ -18,7 +18,6 @@ export default function PracticeLocations() {
 
   const selectedLoc = practiceLocations.find(l => l.id === activeLocId) || practiceLocations[0];
 
-  // Simulated router database for South African clinical clients seeking directions
   const simulatedRoutes: Record<string, Record<string, { text: string; landmarks: string[]; estDuration: string }>> = {
     "loc-jhb": {
       "sandton": {
@@ -37,35 +36,6 @@ export default function PracticeLocations() {
         estDuration: "38 mins"
       }
     },
-    "loc-pta": {
-      "sandton": {
-        text: "Take N1 North towards Pretoria. Take exit 145 for M2/Pretoria/Pretorius St. Keep left/straight onto Pretorius St, then turn right onto Richard St, then right onto Arcadia Street. Hatfield Medical Centre is located on your right-hand side.",
-        landmarks: ["Hatfield Plaza", "University of Pretoria Campus", "Gautrain Hatfield Station"],
-        estDuration: "32 mins"
-      },
-      "centurion": {
-        text: "Drive north on the Jean Avenue interchange onto N14. Connect to Pretorius Street (M2) entering Pretoria city centre. Make a right onto Grosvenor Street, then left onto Arcadia Street to park in Hatfield Medical Centre basement.",
-        landmarks: ["Loftus Versfeld Stadium", "Hatfield Plaza Mall", "Embassy Corridor"],
-        estDuration: "15 mins"
-      },
-      "brooklyn": {
-        text: "Drive north along Jan Shoba Street (formerly Duncan Street) past Brooklyn Mall. Head past the University campuses, turn left onto Arcadia Street. Hatfield Medical Centre is situated near the Richard Street corner.",
-        landmarks: ["University of Pretoria sports fields", "Hatfield Plaza", "Grosvenor crossing"],
-        estDuration: "8 mins"
-      }
-    },
-    "loc-sz": {
-      "ezulwini": {
-        text: "Take the MR3 Highway west towards Mbabane. Continue up the hill, entering Mbabane. Turn left onto Sozisa Road, then link onto Johnstone Street/Johnston Street. Embassy House is located adjacent to major sovereign diplomatic suites.",
-        landmarks: ["Mbabane Central Bus Terminal", "Swazi Plaza", "The Mbabane Club"],
-        estDuration: "12 mins"
-      },
-      "manzini": {
-        text: "Follow MR3 Highway Westbound directly from Manzini through Ezulwini valley and up the Mbabane bypass. Exit towards Johnston Street city center direction. Embassy House 4A is on your right side.",
-        landmarks: ["Ezulwini Valley", "The Gables Shopping Complex", "Embassy Row"],
-        estDuration: "35 mins"
-      }
-    }
   };
 
   const handleCalculateDirections = (e: React.FormEvent) => {
@@ -75,7 +45,6 @@ export default function PracticeLocations() {
     const normalizeQuery = userStartLocation.toLowerCase().trim();
     const locRoutes = simulatedRoutes[activeLocId];
     
-    // Attempt best match
     let patchKey = "";
     if (normalizeQuery.includes("sandton") || normalizeQuery.includes("joburg") || normalizeQuery.includes("randburg")) {
       patchKey = "sandton";
@@ -90,14 +59,12 @@ export default function PracticeLocations() {
     } else if (normalizeQuery.includes("manzini") || normalizeQuery.includes("mhlambanyatsi")) {
       patchKey = "manzini";
     } else {
-      // Default to pretoria or sandton depending on active office
-      patchKey = activeLocId === "loc-jhb" ? "sandton" : activeLocId === "loc-pta" ? "centurion" : "ezulwini";
+      patchKey = "sandton";
     }
 
     if (locRoutes && locRoutes[patchKey]) {
       setRoutingResult(locRoutes[patchKey]);
     } else {
-      // Fallback
       setRoutingResult({
         text: `Consult direct driving directions to the ${selectedLoc.address} address. Standard routes run via adjacent main commercial arteries with regular Gautrain/shuttle links.`,
         landmarks: ["Local municipal buildings", "Municipal intersections", "Suburban signs"],
@@ -119,27 +86,25 @@ export default function PracticeLocations() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <Compass className="w-4 h-4 text-emerald-400" />
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
             Licensed Medico-Legal Service Points
-          </div>
+          </span>
           
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none">
             Our Chambers & Consult Stations
           </h2>
           
           <p className="text-slate-500 text-sm mt-4 leading-relaxed font-sans">
-            Dr. Christopher Mushwana provides physical access and secure rooms for pre-trial audits, HPCSA Section 41 preparation, and Rule 41A clinical mediations across South Africa and Eswatini.
+            Christopher Mushwana provides physical access and secure rooms for pre-trial audits, HPCSA Section 41 preparation, and Rule 41A clinical mediations across South Africa.
           </p>
         </div>
 
         {/* Dynamic Location Viewport Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* LEFT COLUMN: Location Listing, Interactive Tabs, Details Card */}
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Tab Selection buttons */}
             <div className="bg-slate-50 p-2 rounded-2xl border border-slate-200 flex flex-col gap-2">
               <span className="text-[9px] font-mono font-black text-slate-400 uppercase tracking-wider pl-2 pt-1 selection:bg-transparent">
                 Select Active Advisory Chambers:
@@ -191,15 +156,14 @@ export default function PracticeLocations() {
               </div>
 
               <div>
-                <span className="text-[10px] font-mono font-black bg-slate-900 text-emerald-400 px-2 py-1 rounded-md uppercase tracking-wide">
-                  {selectedLoc.type} PROFILE
+                <span className="text-[10px] font-mono font-medium text-slate-400 uppercase tracking-[0.05em]">
+                  {selectedLoc.type} Profile
                 </span>
                 <h3 className="font-display font-extrabold text-[#111827] text-lg sm:text-xl mt-3 leading-snug">
                   {selectedLoc.name}
                 </h3>
               </div>
 
-              {/* Precise Address */}
               <div className="space-y-3.5 text-xs text-slate-700">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
@@ -238,7 +202,6 @@ export default function PracticeLocations() {
                 </div>
               </div>
 
-              {/* Office Facilities Checklists */}
               <div className="border-t border-slate-200 pt-5 space-y-3">
                 <span className="text-[10.5px] font-mono font-bold text-slate-400 uppercase tracking-widest block select-none">
                   Chambers Protection Suit Assets:
@@ -257,16 +220,13 @@ export default function PracticeLocations() {
 
           </div>
 
-          {/* RIGHT COLUMN: Dynamic Interactive Map Viewport and simulated router */}
+          {/* RIGHT COLUMN */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* The Integrated Interactive Map Component */}
             <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg relative flex flex-col">
               
-              {/* Map Viewport Area */}
               <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-100 flex items-center justify-center">
                 
-                {/* Standard map embed within safe, standard HTML iframe */}
                 <iframe
                   title={`Map location of ${selectedLoc.name}`}
                   src={selectedLoc.mapEmbedUrl}
@@ -279,33 +239,30 @@ export default function PracticeLocations() {
                   className="w-full h-full relative z-10"
                 />
 
-                {/* Overlaid Custom descriptive floating visual marker on the map for confidence building */}
                 <div className="absolute top-4 right-4 z-20 bg-slate-900/90 backdrop-blur-md text-white border border-slate-800 p-3 rounded-2xl shadow-md max-w-[240px] hidden sm:block select-none pointer-events-none">
                   <div className="flex items-center gap-2">
                     <span className="flex h-2.5 w-2.5 relative">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                     </span>
-                    <span className="text-[10px] font-mono uppercase bg-slate-950 px-1.5 py-0.5 rounded text-white font-extrabold">
+                    <span className="text-[10px] font-mono uppercase text-white/60 font-extrabold">
                       ACTIVE ADVISOR
                     </span>
                   </div>
                   <h5 className="text-xs font-bold leading-tight mt-2 text-slate-100 font-display">
-                    Dr. Chris Mushwana
+                    Chris Mushwana
                   </h5>
                   <p className="text-[10px] text-slate-400 mt-1 uppercase font-mono font-extrabold truncate">
                     FSP 53666 CONSULT STATION
                   </p>
                 </div>
 
-                {/* Satellite map view disclaimer icon */}
                 <div className="absolute bottom-3 left-3 z-20 bg-white/90 backdrop-blur-sm text-slate-800 p-1.5 rounded-lg text-[9px] font-sans font-bold flex items-center gap-1 border border-slate-200 shadow-sm pointer-events-none select-none">
                   <Info className="w-3.5 h-3.5 text-sky-600" />
                   Interactive GIS Viewport
                 </div>
               </div>
 
-              {/* Map Actions controls footer bar */}
               <div className="bg-slate-50 border-t border-slate-200 px-5 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 select-none">
                 <div className="flex items-center space-x-2 text-xs font-mono font-bold text-slate-500">
                   <div className="bg-slate-900 text-white rounded p-1">
@@ -355,7 +312,6 @@ export default function PracticeLocations() {
                 </p>
               </div>
 
-              {/* Driving/Transit prompt input */}
               <form onSubmit={handleCalculateDirections} className="flex flex-col sm:flex-row gap-3">
                 <div className="flex-grow">
                   <input
@@ -376,11 +332,9 @@ export default function PracticeLocations() {
                 </button>
               </form>
 
-              {/* Travel Advisory Calculation Output */}
               {routingResult ? (
                 <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-inner space-y-4 animate-fadeIn">
                   
-                  {/* Results top row */}
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-100 pb-3">
                     <span className="text-xs font-mono font-black text-rose-600 uppercase tracking-widest bg-rose-50 px-2 py-0.5 rounded border border-rose-100">
                       CALCULATED ROAD ROUTE
@@ -395,7 +349,6 @@ export default function PracticeLocations() {
                     {routingResult.text}
                   </p>
 
-                  {/* Landmarks highlights */}
                   <div className="pt-2">
                     <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-widest block mb-1.5">
                       Key Medical & Urban Landmarks to Spot:
@@ -403,7 +356,7 @@ export default function PracticeLocations() {
                     <div className="flex flex-wrap gap-2">
                       {routingResult.landmarks.map((lmd, keyIdx) => (
                         <span key={keyIdx} className="bg-slate-50 border border-slate-100 text-[10.5px] font-sans font-bold text-slate-600 px-2.5 py-1 rounded-md">
-                          📍 {lmd}
+                          {lmd}
                         </span>
                       ))}
                     </div>
@@ -416,7 +369,6 @@ export default function PracticeLocations() {
                 </div>
               )}
 
-              {/* Universal access specs panels */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 
                 <div className="p-4 bg-white border border-slate-200 rounded-2xl">

@@ -37,14 +37,14 @@ export default function ProfileHero() {
         <img
           src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_128/v1785274897/MyMental_Health_Consultancy_Logo_oeubfx.png"
           alt="MMHFSP — MyMental Health Consulting (FSP 53666) logo"
-          className="w-8 h-8 rounded-full border border-white/20 object-cover"
+          className="w-8 h-8 rounded-lg border border-white/20 object-cover"
           width={32}
           height={32}
           decoding="async"
         />
         <a
           href="/"
-          className="text-white hover:text-sky-200 text-xs font-mono font-bold transition-colors bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-full"
+          className="text-white hover:text-sky-200 text-xs font-mono font-bold transition-colors bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-lg"
         >
           Back to Main Site
         </a>

@@ -182,7 +182,7 @@ export function generateDoctorProfilePDF() {
   doc.setFont("Helvetica", "normal");
   doc.setFontSize(7);
   doc.setTextColor(180, 83, 9); // amber-700
-  const legalText = "MyMental Health Consulting (Pty) Ltd t/a MMHFSP is an Authorized Financial Services Provider registered in South Africa (FSP No: 53666). This documents legal expenses cover administration and sessional clinical risk assessment protocols under the FSCA and Health Professions Act 56 of 1974. Dr. Christopher Mushwana consults strictly as a medicolegal expert and expert underwriter director, and does not conduct direct sessional clinical psychotherapy or psychiatry counseling care.";
+  const legalText = "MyMental Health Consulting (Pty) Ltd t/a MMHFSP is an Authorized Financial Services Provider registered in South Africa (FSP No: 53666). This documents legal expenses cover administration and sessional clinical risk assessment protocols under the FSCA and Health Professions Act 56 of 1974. Christopher Mushwana consults strictly as a medicolegal expert and expert underwriter director, and does not conduct direct sessional clinical psychotherapy or psychiatry counseling care.";
   const legalSplits = doc.splitTextToSize(legalText, 170);
   doc.text(legalSplits, 20, y + 9);
 

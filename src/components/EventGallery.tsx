@@ -34,15 +34,14 @@ export default function EventGallery() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <Camera className="w-4 h-4 text-emerald-400" />
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
             Firm Events & Engagements
-          </div>
+          </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-4">
             Conference & Event Gallery
           </h2>
           <p className="text-slate-500 text-sm leading-relaxed font-sans">
-            Dr. Christopher Mushwana engaging with healthcare professionals at medico-legal conferences, industry summits, and regulatory training sessions.
+            Christopher Mushwana engaging with healthcare professionals at medico-legal conferences, industry summits, and regulatory training sessions.
           </p>
         </div>
 
@@ -55,7 +54,7 @@ export default function EventGallery() {
             >
               <img
                 src={src}
-                alt={`Dr. Christopher Mushwana engaging healthcare professionals at MMHFSP medico-legal event ${idx + 1} of ${eventImages.length}`}
+                alt={`Christopher Mushwana engaging healthcare professionals at MMHFSP medico-legal event ${idx + 1} of ${eventImages.length}`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
@@ -94,7 +93,7 @@ export default function EventGallery() {
 
           <img
             src={eventImages[lightbox]}
-            alt={`Dr. Christopher Mushwana at MMHFSP medico-legal event ${lightbox + 1} of ${eventImages.length} — enlarged view`}
+            alt={`Christopher Mushwana at MMHFSP medico-legal event ${lightbox + 1} of ${eventImages.length} — enlarged view`}
             className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />

@@ -26,7 +26,7 @@ export const insightsArticles: Article[] = [
     excerpt: "A tactical breakdown of structural defense strategies for clinical practitioners during the rigid 40-day regulatory board response window.",
     pubDate: "2026-06-10",
     readTime: "6 min read",
-    author: "Dr. Christopher Mushwana",
+    author: "Christopher Mushwana",
     role: "Lead Medical Law Consultant",
     keyTakeaways: [
       "Submit clinical summaries utilizing the SOAP methodology (Subjective, Objective, Assessment, Plan).",
@@ -58,7 +58,7 @@ export const insightsArticles: Article[] = [
     excerpt: "How pre-trial mediation preserves professional reputations, curtails legal cycles, and gives clinicians contract veto power.",
     pubDate: "2026-04-18",
     readTime: "5 min read",
-    author: "Dr. Christopher Mushwana",
+    author: "Christopher Mushwana",
     role: "Mediation Registrar & Clinical Director",
     keyTakeaways: [
       "Use Rule 41A immediately upon receipt of summons to signal good-faith resolution.",
@@ -114,15 +114,14 @@ export default function ThoughtLeadership() {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-              <BookOpen className="w-4 h-4 text-emerald-400" />
-              MEDICO-LEGAL INSIGHTS & INTEL
-            </div>
+            <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
+              Medico-Legal Insights & Intel
+            </span>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none">
               Thought Leadership Forum
             </h2>
             <p className="text-slate-600 text-sm mt-4 font-sans leading-relaxed">
-              Dr. Christopher Mushwana and guest legal experts compile critical brief reviews, POPIA defense playbooks, and clinical-legal precedents to keep practices protected.
+              Christopher Mushwana and guest legal experts compile critical brief reviews, POPIA defense playbooks, and clinical-legal precedents to keep practices protected.
             </p>
           </div>
 
@@ -164,12 +163,11 @@ export default function ThoughtLeadership() {
                 key={art.id}
                 className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 flex flex-col justify-between hover:shadow-lg hover:border-slate-300 transition-all duration-300 group relative overflow-hidden"
               >
-                {/* Accent band */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-sky-600 group-hover:to-emerald-500 transition-all" />
 
                 <div className="space-y-4">
                   
-                  {/* Category & Date metadata */}
+                  {/* Category & Date metadata — flat typography, mid-dot separated */}
                   <div className="flex items-center justify-between text-[11px] font-mono font-bold select-none text-slate-500">
                     <span className="text-sky-600 uppercase tracking-wider">
                       {art.category}
@@ -180,23 +178,20 @@ export default function ThoughtLeadership() {
                     </span>
                   </div>
 
-                  {/* Title */}
                   <h3 className="font-display font-extrabold text-slate-900 text-lg sm:text-lg group-hover:text-sky-600 transition-colors leading-snug">
                     {art.title}
                   </h3>
 
-                  {/* Excerpt */}
                   <p className="text-slate-600 text-xs sm:text-sm font-sans leading-relaxed">
                     {art.excerpt}
                   </p>
 
                 </div>
 
-                {/* Footer and Read button */}
                 <div className="border-t border-slate-100 pt-5 mt-6 flex items-center justify-between text-xs">
                   <div className="flex items-center space-x-2 select-none">
                     <div className="bg-slate-100 p-1 rounded font-sans text-[10px] font-bold text-slate-500">
-                      📝 {art.readTime}
+                      {art.readTime}
                     </div>
                   </div>
 
@@ -231,10 +226,8 @@ export default function ThoughtLeadership() {
             className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* High visual accent header */}
             <div className="h-2 bg-gradient-brand-indigo" />
 
-            {/* Modal dismiss bar */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 select-none">
               <div className="flex items-center space-x-2">
                 <span className="font-mono text-[10px] bg-slate-100 text-sky-600 px-2 py-1 rounded border border-slate-200 uppercase font-black tracking-wide">
@@ -253,7 +246,6 @@ export default function ThoughtLeadership() {
               </button>
             </div>
 
-            {/* Main content body */}
             <div className="p-6 sm:p-8 space-y-6 overflow-y-auto max-h-[75vh]">
               
               <div className="space-y-2">
@@ -262,12 +254,11 @@ export default function ThoughtLeadership() {
                 </h3>
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-400">
                   <span>Author: {selectedArticle.author}</span>
-                  <span>•</span>
+                  <span>&bull;</span>
                   <span>{selectedArticle.role}</span>
                 </div>
               </div>
 
-              {/* Main article text */}
               <div className="text-slate-700 text-sm leading-relaxed font-sans select-text space-y-4">
                 <p className="font-semibold text-slate-800 text-base leading-relaxed">
                   {selectedArticle.excerpt}
@@ -276,11 +267,10 @@ export default function ThoughtLeadership() {
                   {selectedArticle.content}
                 </p>
                 <p>
-                  Practice-level risks require immediate, continuous attention. Dr. Mushwana and our team counsel clinicians to perform regular, documented process updates to preserve compliance standing.
+                  Practice-level risks require immediate, continuous attention. Christopher Mushwana and our team counsel clinicians to perform regular, documented process updates to preserve compliance standing.
                 </p>
               </div>
 
-              {/* Takeaways block */}
               <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-3 relative overflow-hidden">
                 <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-sky-600 to-emerald-500" />
                 <div className="flex items-center space-x-1.5 mb-1 select-none">
@@ -301,7 +291,6 @@ export default function ThoughtLeadership() {
 
             </div>
 
-            {/* Footer triggers */}
             <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
               <span className="text-[10.5px] font-sans font-medium text-center sm:text-left text-slate-400">
                 Protect your medical practice from HPCSA and clinical liability exposure.

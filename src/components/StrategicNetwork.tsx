@@ -1,4 +1,4 @@
-import { ShieldCheck, Users, Sparkles } from "lucide-react";
+import { ShieldCheck, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { profileMeta } from "../data";
 
@@ -19,14 +19,14 @@ const partners = [
 
 const consultants = [
   {
-    name: "Dr Herman Edeling",
-    role: "Medical Mediator",
-    credential: "SAMLA Chairperson",
+    name: "Medico-Legal Consultant",
+    role: "Clinical Mediation",
+    credential: "SAMLA Trained",
     desc: "Leading clinical mediation frameworks under Uniform Rule 41A. Guiding structured alternative dispute resolution for medical practitioners across South African High Court jurisdictions.",
   },
   {
-    name: "Mosidi Shomang",
-    role: "Insurance Consultant",
+    name: "Insurance Consultant",
+    role: "Indemnity Structuring",
     credential: "FSCA Registered",
     desc: "Specialist in sessional indemnity structuring and HPCSA compliance portfolios. Ensuring practitioners receive contractually guaranteed, non-discretionary cover.",
   },
@@ -68,10 +68,9 @@ export default function StrategicNetwork() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ ease: "easeInOut", duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
             Strategic Partners & Consultants
-          </div>
+          </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-3">
             Our Strategic Network
           </h2>
@@ -79,7 +78,7 @@ export default function StrategicNetwork() {
           <p className="text-slate-500 text-sm leading-relaxed font-sans">
             Medical professionals have legal rights too. Through our team of experts, we strive to provide an exceptional and impactful experience for medical professionals that is unmatched in the industry.
           </p>
-          <span className="inline-block mt-3 text-[10px] font-mono font-black bg-slate-100 text-sky-700 px-3 py-1 rounded-full uppercase tracking-wider">
+          <span className="inline-block mt-3 text-[10px] font-mono font-medium text-slate-400 uppercase tracking-[0.05em]">
             Authorized Financial Services Provider FSP {profileMeta.fspLicense} of non-life insurance
           </span>
         </motion.div>
@@ -120,16 +119,16 @@ export default function StrategicNetwork() {
               Why Medical Professionals Trust MMHFSP
             </h3>
             <p className="text-slate-600 text-sm leading-relaxed font-sans">
-              Our strategic network is built on years of rigorous vetting and mutual trust. We partner with top-tier insurance providers — Santam, Hollard, Old Mutual, PPS and more — to ensure our clients receive the most robust protection available in the medico-legal landscape, backed by global reinsurers Swiss Re and Munich Re.
+              Our strategic network is built on years of rigorous vetting and mutual trust. We partner with top-tier insurance providers — Santam, Hollard, Old Mutual, PPS and more — to ensure our clients receive the most robust protection available in the medico-legal landscape, backed by major global reinsurers.
             </p>
             <ul className="space-y-3">
               {[
                 "Vetted for regulatory compliance under FSCA and FAIS Act",
-                "Global reinsurance backing from Swiss Re and Munich Re",
+                "Global reinsurance backing from major international reinsurers",
                 "Contractually guaranteed, non-discretionary legal cover",
               ].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3">
-                  <div className="p-1 bg-emerald-50 rounded-full shrink-0">
+                  <div className="p-1 bg-emerald-50 rounded shrink-0">
                     <ShieldCheck className="w-4 h-4 text-emerald-500" />
                   </div>
                   <span className="text-sm text-slate-700 font-medium font-sans">{item}</span>
@@ -147,10 +146,9 @@ export default function StrategicNetwork() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase mb-4">
-              <Users className="w-4 h-4 text-sky-600" />
+            <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
               Our Resident Consultants
-            </div>
+            </span>
             <h3 className="font-display font-black text-2xl text-slate-900">
               Expert Guidance You Can Rely On
             </h3>

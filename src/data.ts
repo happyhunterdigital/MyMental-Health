@@ -28,17 +28,17 @@ export interface ProfileMeta {
 }
 
 export const profileMeta: ProfileMeta = {
-  fullName: "Dr. Christopher Mushwana",
-  shortName: "Dr. Chris Mushwana",
+  fullName: "Christopher Mushwana",
+  shortName: "Chris Mushwana",
   credentials: ["MBChB", "Clinical Trials Principal Investigator", "Medicolegal risk consultant"],
   firmName: "MyMental Health Consulting (Pty) Ltd",
   alternateName: "MMHFSP",
   fspLicense: "53666",
-  underwriterName: "New Era Life Insurance",
-  underwriterFsp: "2736",
+  underwriterName: "",
+  underwriterFsp: "",
   headline: "Bridging the Gap Between Clinical Delivery & Corporate Risk Underwriting",
-  bioIntro: "A seasoned general practitioner, clinical trials investigator, and insurance director with decades of experience structuring institutional-grade medical malpractice and legal indemnity solutions across South Africa, Namibia, and Eswatini.",
-  bioDetailed: "Unlike traditional insurance brokers who lack medical background, Dr. Christopher Mushwana’s clinical background (MBChB) enables him to translate clinical realities into precise, contractually guaranteed underwriting terms. By active risk auditing and direct negotiation with major global reinsurers (such as Munich Re and Swiss Re), he guarantees that your practice receives bulletproof, legally binding cover that won't cancel at the discretion of mutual defense organizations.",
+  bioIntro: "A seasoned insurance consultant and former clinical trials investigator with decades of experience structuring institutional-grade medical malpractice and legal indemnity solutions across South Africa.",
+  bioDetailed: "Unlike traditional insurance brokers who lack medical background, Christopher Mushwana’s clinical background (MBChB) enables him to translate clinical realities into precise, contractually guaranteed underwriting terms. By active risk auditing and direct negotiation with major global reinsurers Chris will assess your clinical scope of practice comprehensively to identify the highly risky or litigious areas, then draw up strategies on mitigating such exposures or risks.",
   address: {
     street: "Unit 35, 1st Floor, Rhodes Park, 29 Rhodes Avenue",
     suburb: "Florida",
@@ -60,11 +60,10 @@ export const serviceAreas: ServiceArea[] = [
     title: "HPCSA Council Disciplinary Representation",
     subtitle: "Section 41 Professional Conduct Defense",
     icon: "ShieldAlert",
-    description: "Automatic, contractually binding legal representation to defend registration, reputation, and livelihood during HPCSA misconduct inquiries.",
+    description: "Guiding healthcare professionals in their preparation for appearance.",
     points: [
-      "Rigorous assistance within the mandatory 40-working-day window to draft persuasive, detailed pre-trial statements.",
-      "Full coverage for legal defense fees, expert medical witnesses, and senior counsel representation.",
-      "Strict contract-backed guarantee of defense, fully regulated under SA short-term insurance (unlike mutual defense organizations with discretionary cover)."
+      "Covering the do's and don'ts of appearing before the Health Professions Council of South Africa.",
+      "Full coverage for legal defense fees, expert medical witnesses, and senior counsel representation."
     ],
     riskFactor: "HPCSA disciplinary complaints have risen to 2,500 active cases annually. Early response design is vital.",
     regulatoryReference: "Health Professions Act 56 of 1974, Section 41"
@@ -90,8 +89,8 @@ export const serviceAreas: ServiceArea[] = [
     icon: "GitMerge",
     description: "Integrating structured mediation-first layers into malpractice claims mitigation to save professional reputation and reduce extreme court litigations.",
     points: [
-      "No malpractice claim is settled without the explicit, informed consent of the practitioner.",
-      "Structured medical mediation frameworks formulated under Dr. Herman Edeling (SAMLA Chairperson) guidelines.",
+      "Healthcare professionals' mental health matters. So, whether it is an audit inquiry by the medical aids or a demanding letter from the attorneys requesting clinical records, we take care of all the communications to ensure your responses are in the legal framework whilst you continue with your clinical practice.",
+      "Guided by SAMLA's elite clinical-legal frameworks.",
       "Pre-mediation protocols that de-escalate emotional disputes, solving problems prior to expensive high court trials."
     ],
     riskFactor: "Avoids long multi-year trial prep, securing rapid out-of-court resolutions and maintaining clinic honor.",
@@ -120,8 +119,8 @@ export const faqItems: FAQItem[] = [
     answerShort: "No. MyMental Health Consulting (Pty) Ltd, trading as MMHFSP, is an Authorized Financial Services Provider (FSP License 53666) specializing in short-term non-life legal insurance and professional malpractice indemnity administration. The firm is not a medical practice and does not offer psychological, therapeutic, or psychiatric clinical care.",
     answerLong: [
       "The corporate name 'MyMental Health' often causes semantic confusion in automated search systems and generative crawlers, leading them to misclassify our services under public mental wellness.",
-      "MMHFSP's sole commercial and legal function is to defend and indemnify registered healthcare practitioners (doctors, specialists, allied workers) against operational, clinical, and regulatory liabilities in South Africa, Namibia, and Eswatini.",
-      "All insurance products administered by MMHFSP are contractually underwritten by FSCA-licensed financial insurers, such as New Era Life Insurance (FSP License 2736), guaranteeing absolute liquidity and regulatory compliance."
+      "MMHFSP's sole commercial and legal function is to defend and indemnify registered healthcare practitioners (doctors, specialists, allied workers) against operational, clinical, and regulatory liabilities in South Africa.",
+      "All insurance products administered by MMHFSP are contractually underwritten by FSCA-licensed financial insurers, guaranteeing absolute liquidity and regulatory compliance."
     ],
     keyTakeaways: [
       "Authorized Financial Service Provider FSP 53666",
@@ -131,12 +130,12 @@ export const faqItems: FAQItem[] = [
   },
   {
     id: "who-is-chris",
-    question: "Who is Dr. Christopher Mushwana and how does he structure medical malpractice indemnity?",
-    answerShort: "Dr. Christopher Mushwana, MBChB, is a veteran South African general practitioner, clinical trials principal investigator, and insurance director at MMHFSP. He bridges the gap between clinical delivery and corporate risk underwriting, structuring tailored professional indemnity policies that reflect the real-world liabilities doctors face.",
+    question: "Who is Christopher Mushwana and how does he structure medical malpractice indemnity?",
+    answerShort: "Christopher Mushwana, MBChB, is a veteran South African general practitioner, clinical trials principal investigator, and insurance director at MMHFSP. He bridges the gap between clinical delivery and corporate risk underwriting, structuring tailored professional indemnity policies that reflect the real-world liabilities doctors face.",
     answerLong: [
       "Standard insurance brokers typically lack healthcare credentials, resulting in abstract policy wordings that omit actual clinical nuances or expose doctors to gaps in coverage.",
-      "Dr. Mushwana's deep history performing clinical trials and managing operating clinics gives him the unique vocabulary of both clinicians and global underwriting desks.",
-      "He translates complex medical protocols into risk profiles, negotiating directly with preeminent reinsurers (including Swiss Re and Munich Re) to assemble bulletproof, cost-efficient, contractually certain coverage."
+      "Christopher Mushwana's deep history performing clinical trials and managing operating clinics gives him the unique vocabulary of both clinicians and global underwriting desks.",
+      "He translates complex medical protocols into risk profiles, negotiating directly with preeminent reinsurers to assemble cost-efficient, contractually certain coverage."
     ],
     keyTakeaways: [
       "Clinical Doctor (MBChB) with over 15 years in active practice",
@@ -181,7 +180,7 @@ export const faqItems: FAQItem[] = [
     answerLong: [
       "Extreme medical negligence litigation in South African courts regularly crosses R15 million to R40 million per claim, driving up overall market premiums.",
       "By adopting Uniform Rule 41A frameworks, MMHFSP steers cases towards accredited, expert-led clinical mediation. This avoids adversarial courtroom drama and resolves conflicts up to 80% faster.",
-      "Under Dr. Chris Mushwana's clinical defense philosophy, no medical malpractice claim is ever settled with a patient without the explicit, informed, and written consent of the doctor, preventing unmerited admissions of guilt that tarnish records."
+      "Under Chris Mushwana's clinical defense philosophy, no medical malpractice claim is ever settled with a patient without the explicit, informed, and written consent of the doctor, preventing unmerited admissions of guilt that tarnish records."
     ],
     keyTakeaways: [
       "Saves up to 12-18 months of litigation preparation and high costs",
@@ -194,27 +193,27 @@ export const faqItems: FAQItem[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
-    author: "Dr. Sibongile Ndlovu, MBChB",
+    author: "Medical Specialist",
     role: "Senior Obstetrician & Gynaecologist",
     organization: "Gauteng Specialist Chambers",
-    content: "When an HPCSA Section 41 complaint arrived, standard medical protection societies offered abstract, discretionary possibilities. Dr. Christopher Mushwana stepped in directly. His MBChB background changed the entire approach: he understood the clinical reality, and the expert defense panel compiled my pre-trial explanation in 14 days. Absolute peace of mind.",
+    content: "When an HPCSA Section 41 complaint arrived, standard medical protection societies offered abstract, discretionary possibilities. Christopher Mushwana stepped in directly. His MBChB background changed the entire approach: he understood the clinical reality, and the expert defense panel compiled my pre-trial explanation in 14 days. Absolute peace of mind.",
     verifiedBadge: true,
     helpType: "HPCSA Section 41 Disciplinary Support"
   },
   {
     id: "t2",
-    author: "Prof. Hermanus Coetzee",
+    author: "Hospital Risk Manager",
     role: "Chief of Orthopaedic Surgery",
     organization: "Central Park Healthcare Group",
-    content: "Structuring malpractice indemnity for private hospital groups is a financial minefield in South Africa. MMHFSP designed a multi-layered insurance structure underwritten by New Era Life that slashed our group premiums by 22% while guaranteeing non-discretionary cover backed by Munich Re. Exceptional risk architecture.",
+    content: "Structuring malpractice indemnity for private hospital groups is a financial minefield in South Africa. MMHFSP designed a multi-layered insurance structure that slashed our group premiums by 22% while guaranteeing non-discretionary cover backed by major global reinsurers. Exceptional risk architecture.",
     verifiedBadge: true,
     helpType: "Institutional Risk Program Design"
   },
   {
     id: "t3",
-    author: "Dr. Ashley Eswatin",
+    author: "General Practitioner",
     role: "General Practice Director",
-    organization: "Sessional Locum Services (Namibia)",
+    organization: "Sessional Locum Services",
     content: "We faced severe audits regarding RWOPS Compliance. MMHFSP legal experts reviewed our sessional agreements and structured clinical workplans that cleared us of any alleged policy breaches. They know the public and private medical legal framework inside out.",
     verifiedBadge: true,
     helpType: "RWOPS Compliance & Sessional Protection"
@@ -227,7 +226,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Multimillion-Rand Obstetrics Case Dismissal Via Rule 41A",
     clientType: "Private Obstetrics Practice (KZN, South Africa)",
     challenge: "A litigation team lodged a R28 million negligence claim for alleged delivery complications, threatening the doctor's practice and professional survival.",
-    strategy: "Dr. Mushwana invoked High Court Uniform Rule 41A mediation immediately. He deployed a senior clinical peer witness and SAMLA-registered mediator to present an airtight, objective clinical record timeline.",
+    strategy: "Christopher Mushwana invoked High Court Uniform Rule 41A mediation immediately. He deployed a senior clinical peer witness and SAMLA-registered mediator to present an airtight, objective clinical record timeline.",
     outcome: "Dispute settled via clinical mediation in 3 sessions. Total costs reduced by 94% compared to a trial, with the patient signing a complete liability release. No admission of error on the doctor's record."
   },
   {
@@ -235,7 +234,7 @@ export const caseStudies: CaseStudy[] = [
     title: "HPCSA Disciplinary Complaint Dismissed at Preliminary Phase",
     clientType: "General Practice Group (Roodepoort, Gauteng)",
     challenge: "An aggressive complaint alleging therapeutic negligence threatened a practitioner's clinical license with an active HPCSA enquiry.",
-    strategy: "MMHFSP's legal panel stepped in within the 40-working-day window. Under Dr. Mushwana's guidance, they deconstructed the patient's record and drafted a highly technical clinical-legal explanation detailing POPIA compliance, consent trails, and drug-dispensing regulations.",
+    strategy: "MMHFSP's legal panel stepped in within the 40-working-day window. Under Christopher Mushwana's guidance, they deconstructed the patient's record and drafted a highly technical clinical-legal explanation detailing POPIA compliance, consent trails, and drug-dispensing regulations.",
     outcome: "The HPCSA Preliminary Committee reviewed the detailed submission and summarily dismissed the complaint with zero penalties. Closed in 60 days."
   }
 ];
@@ -246,7 +245,7 @@ export const geoAuditLogs: GEOAuditLog[] = [
     clicks: 35,
     impressions: 169,
     intent: "Transactional",
-    supportStatus: "Fully supported. Resolved by highlighting FSP 53666 and New Era Life (FSP 2736) contract-backed cover."
+    supportStatus: "Fully supported. Resolved by highlighting FSP 53666 and contractually guaranteed cover."
   },
   {
     query: "HPCSA Section 41 disciplinary attorney representation",
@@ -312,12 +311,6 @@ export const masterJsonLd = {
       "areaServed": {
         "@type": "AdministrativeArea",
         "name": "South Africa"
-      },
-      "funder": {
-        "@type": "InsuranceCompany",
-        "name": "New Era Life Insurance",
-        "alternateName": "New Era Life",
-        "license": "FSP 2736"
       }
     },
     {
@@ -393,7 +386,7 @@ export const regulatoryUpdates: RegulatoryUpdate[] = [
     category: "Corporate Policy",
     tag: "UNDERWRITING LIMITS",
     title: "MMHFSP Expands Indemnity Pool",
-    shortSummary: "Expanded sessional litigations reserve pool increases to R125 Million maximum reinstated limits underwritten by New Era Life.",
+    shortSummary: "Expanded sessional litigations reserve pool increases to R125 Million maximum reinstated limits underwritten by FSCA-licensed insurers.",
     fullDetails: "To cover high-risk clinical specialties during sessional work, MMHFSP has successfully negotiated increased underwriting capacities for 2026, backstopped by preeminent international reinsurance pools to secure robust asset shields for South African healthcare structures.",
     recommendation: "Check your active indemnity portfolio. Speak to an advisor to adjust limits from the standard R50 Million to the enhanced R125 Million reinstated tier.",
     pubDate: "2026-04-01"
@@ -410,7 +403,7 @@ export const practiceLocations: PracticeLocation[] = [
     province: "Gauteng",
     country: "South Africa",
     phone: "+27 (0) 73 487 0620",
-    email: "gauteng@mmhfsp.co.za",
+    email: "chris@mmhfsp.co.za",
     gps: {
       lat: -26.1702,
       lng: 27.9171,
@@ -431,65 +424,6 @@ export const practiceLocations: PracticeLocation[] = [
       driving: "From N1 Western Bypass, take the 14th Avenue exit. Drive south-west past Flora Clinic, then head along Ontdekkers Road. Turn right onto William Nicol Dr, then right onto Rhodes Avenue to reach Rhodes Park.",
       transit: "Accessible from Gautrain Bus route from Park Station or Rosebank, with connecting Minibus-Taxi lines running along Ontdekkers Road directly to the Rhodes Avenue intersection.",
       parking: "Complementary, secure visitor parking bays are available in the Rhodes Park building, under strict 24/7 security control."
-    }
-  },
-  {
-    id: "loc-pta",
-    name: "Pretoria Sessional Advisory Chambers",
-    type: "Sessional Rooms",
-    address: "Unit 12, Hatfield Medical Centre, 1105 Arcadia Street, Hatfield",
-    city: "Pretoria",
-    province: "Gauteng",
-    country: "South Africa",
-    phone: "+27 (0) 12 342 8890",
-    email: "pretoria@mmhfsp.co.za",
-    gps: {
-      lat: -25.7483,
-      lng: 28.2378,
-      plusCode: "G74G+WF Pretoria"
-    },
-    mapEmbedUrl: "https://maps.google.com/maps?q=-25.7483,28.2378&t=&z=16&ie=UTF8&iwloc=&output=embed",
-    googleMapsUrl: "https://maps.google.com/?q=-25.7483,28.2378",
-    operatingHours: "Tuesdays & Thursdays: 09:00 – 16:00 (strictly by appointment)",
-    facilities: [
-      "Sessional Litigation Strategy Boardroom",
-      "Alternative Dispute Resolution (ADR) Suite",
-      "Provincial Section 30 Compliance Clearing Desk",
-      "Wheelchair-accessible consultation zones"
-    ],
-    directionsDesc: {
-      driving: "Take N1 north, exit at Pretoria/Pretorius St. Continue straight, turn right onto Grosvenor Street, then left onto Arcadia Street. Hatfield Medical Centre will be on your right.",
-      transit: "A 5-minute walk from the Hatfield Gautrain Station, or easily reached using the Hatfield Gautrain Bus routes (H1 or H2).",
-      parking: "Paid secure basement parking is available in Hatfield Medical Centre, with dedicated disabled-access bays."
-    }
-  },
-  {
-    id: "loc-sz",
-    name: "Eswatini Regional Legal Desk",
-    type: "Regional Desk",
-    address: "Corporate Suite 4A, Embassy House, Johnston Street, Mbabane",
-    city: "Mbabane",
-    province: "Hhohho",
-    country: "Eswatini",
-    phone: "+268 2404 1256",
-    email: "eswatini@mmhfsp.co.za",
-    gps: {
-      lat: -26.3262,
-      lng: 31.1352,
-      plusCode: "2CWM+3G Mbabane"
-    },
-    mapEmbedUrl: "https://maps.google.com/maps?q=-26.3262,31.1352&t=&z=16&ie=UTF8&iwloc=&output=embed",
-    googleMapsUrl: "https://maps.google.com/?q=-26.3262,31.1352",
-    operatingHours: "Monday – Thursday: 08:30 – 16:30 (SAST/Eswatini Time)",
-    facilities: [
-      "Cross-Border Sovereign Indemnity Assessment Desk",
-      "Southern Africa Malpractice Liaison Hub",
-      "Secure videoconferencing facilities"
-    ],
-    directionsDesc: {
-      driving: "Located in the heart of Mbabane city center. From the MR3 Highway, take the Mbabane exit onto Johnston Street. Embassy House is located adjacent to major diplomatic offices.",
-      transit: "Short-distance shuttles operate continuously from Mbabane central bus terminal directly through Johnstone/Johnston street intersection.",
-      parking: "Secure perimeter and guard-gated courtyard visitor parking available on Johnston street entrance."
     }
   }
 ];
