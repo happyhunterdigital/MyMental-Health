@@ -19,15 +19,14 @@ export default function Testimonials() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase shadow-sm">
-            <Star className="w-4 h-4 text-sky-600 fill-sky-600" />
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
             Verified Practitioner Testimonials
-          </div>
+          </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-4 mt-4">
-            Trusted by Elite Physicians & Boards
+            Trusted by Medical Specialists & Boards
           </h2>
           <p className="text-slate-500 text-sm leading-relaxed font-sans">
-            Hear from leading medical specialists, gynaecologists, and group hospital risk managers who secured contractual certainty and career protection under Dr. Chris&apos;s guidance.
+            Hear from leading medical specialists, gynaecologists, and group hospital risk managers who secured contractual certainty and career protection under Chris&apos;s guidance.
           </p>
         </div>
 
@@ -38,13 +37,11 @@ export default function Testimonials() {
               key={test.id}
               className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative hover:border-sky-500/40 hover:shadow-xl transition-all duration-300 group"
             >
-              {/* Giant decorative quote graphic mark */}
               <div className="absolute top-4 right-4 text-slate-100 pointer-events-none select-none">
                 <Quote className="w-10 h-10 group-hover:scale-110 group-hover:text-emerald-400 transition-colors duration-300" />
               </div>
 
               <div>
-                {/* Verified Support badge */}
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
                   <span className="text-[10px] font-mono text-sky-700 bg-sky-50 border border-sky-100 px-2.5 py-0.5 rounded font-extrabold uppercase tracking-wide">
                     {test.helpType}
@@ -57,13 +54,11 @@ export default function Testimonials() {
                   )}
                 </div>
 
-                {/* Testimonial Core Content */}
                 <p className="text-slate-600 text-sm italic leading-relaxed font-sans mb-6 select-text">
                   &ldquo;{test.content}&rdquo;
                 </p>
               </div>
 
-              {/* Author signature block */}
               <div className="border-t border-slate-100 pt-4 mt-6">
                 <h4 className="text-sm font-bold text-slate-900 tracking-tight">
                   {test.author}
@@ -83,13 +78,11 @@ export default function Testimonials() {
         {/* CASE PRECEDENT VISUAL DOCK */}
         <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg grid grid-cols-1 lg:grid-cols-12">
           
-          {/* Left: Selector panel styled contractually in charcoal contrast */}
           <div className="lg:col-span-5 bg-slate-900 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col justify-between text-white">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono font-bold uppercase mb-4 text-emerald-400">
-                <Award className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+              <span className="text-[10px] font-mono font-medium tracking-[0.05em] uppercase text-emerald-400 block mb-4">
                 Proven Case Precedents
-              </div>
+              </span>
               
               <h3 className="font-display font-black text-2.5xl text-white tracking-tight leading-none mb-3">
                 Precedents of Clinical Veto & Defense
@@ -125,7 +118,6 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Right: Precedent details card in warm cream */}
           <div className="lg:col-span-7 p-6 sm:p-8 bg-slate-50/50 flex flex-col justify-between space-y-6">
             
             <div className="space-y-5">
@@ -138,7 +130,6 @@ export default function Testimonials() {
                 </span>
               </div>
 
-              {/* Description boxes */}
               <div className="space-y-4 font-sans text-slate-700">
                 <div>
                   <h4 className="text-[10px] uppercase font-mono tracking-wider text-slate-400 font-extrabold">The Threatening Challenge:</h4>
@@ -156,7 +147,6 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* Resolved Outcome block with Calming Blue highlight gradient */}
             <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-brand-indigo" />
               <span className="text-[10px] uppercase font-mono tracking-wider text-sky-600 font-extrabold block mb-1">

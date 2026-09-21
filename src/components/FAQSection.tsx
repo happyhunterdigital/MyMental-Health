@@ -27,10 +27,9 @@ export default function FAQSection() {
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <Bookmark className="w-4 h-4 text-emerald-400" />
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
             Hospital & Practitioner Knowledge Base
-          </div>
+          </span>
           
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-4">
             Frequently Asked Questions
@@ -55,7 +54,6 @@ export default function FAQSection() {
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50/50"
                 }`}
               >
-                {/* Header Question Bar */}
                 <button
                   onClick={() => toggleExpand(faq.id)}
                   className="w-full text-left p-6 sm:p-7 flex justify-between items-center gap-4 cursor-pointer focus:outline-none"
@@ -74,11 +72,9 @@ export default function FAQSection() {
                   </div>
                 </button>
 
-                {/* Expanded Answer Body */}
                 {isExpanded && (
                   <div className="px-6 pb-7 sm:px-7 sm:pb-8 border-t border-slate-100 pt-6 space-y-5 animate-fadeIn">
                     
-                    {/* Golden Summary Answer Container */}
                     <div className="bg-slate-50 border border-slate-200 p-4.5 rounded-2xl flex items-start gap-3.5">
                       <div className="bg-slate-900 p-1.5 rounded-lg text-emerald-400 border border-slate-800 shrink-0 mt-0.5">
                         <span className="font-mono text-[9px] font-bold tracking-wider">SUMMARY</span>
@@ -93,7 +89,6 @@ export default function FAQSection() {
                       </div>
                     </div>
 
-                    {/* Detailed regulatory specs */}
                     <div className="space-y-3.5 pl-1 sm:pl-3">
                       <span className="text-[10px] uppercase font-mono tracking-widest text-sky-600 font-extrabold block">
                         Detailed Operational Specifications:
@@ -105,18 +100,18 @@ export default function FAQSection() {
                       ))}
                     </div>
 
-                    {/* Quality badges */}
+                    {/* Quality badges — flat typography list instead of pill blocks */}
                     <div className="pt-4 border-t border-slate-100">
                       <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400 font-extrabold block mb-3">
                         Regulatory Audit Alignment Properties:
                       </span>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-x-4 gap-y-2">
                         {faq.keyTakeaways.map((takeaway, tIdx) => (
                           <span
                             key={tIdx}
-                            className="inline-flex items-center text-[10.5px] font-mono font-bold px-3 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-700 shadow-sm"
+                            className="text-[10.5px] font-mono font-bold text-slate-600"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-sky-600 mr-2 shrink-0" />
+                            {tIdx > 0 && <span className="text-slate-300 mr-2">&bull;</span>}
                             {takeaway}
                           </span>
                         ))}
@@ -131,7 +126,6 @@ export default function FAQSection() {
           })}
         </div>
 
-        {/* Bottom help desk disclaimer */}
         <div className="mt-12 bg-slate-50 border border-slate-200 p-5 rounded-3xl flex items-start gap-3.5">
           <AlertCircle className="w-5.5 h-5.5 text-sky-600 shrink-0 mt-0.5" />
           <p className="text-xs text-slate-500 leading-relaxed font-sans select-text">

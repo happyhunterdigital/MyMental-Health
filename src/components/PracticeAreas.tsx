@@ -3,7 +3,6 @@ import { ShieldAlert, Stethoscope, GitMerge, Scale, ArrowRight, Award, Graduatio
 import { serviceAreas, profileMeta } from "../data";
 import { motion } from "framer-motion";
 
-// Resolve actual types of Lucide Icon components
 const iconMapper: Record<string, any> = {
   ShieldAlert: ShieldAlert,
   Stethoscope: Stethoscope,
@@ -34,10 +33,9 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
           
           {/* Bio Left: Standing & Achievement Narrative */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm">
-              <GraduationCap className="w-4 h-4 text-emerald-400" />
+            <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block">
               Executive Profile & Biography
-            </div>
+            </span>
             
             <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
               A Clinically-Led Defense Shield for Practitioners
@@ -64,7 +62,7 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
                   <Building className="w-4.5 h-4.5 text-sky-600" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Authorized Advisory Director • MMHFSP</h4>
+                  <h4 className="text-sm font-bold text-slate-900">Authorized Advisory Director &bull; MMHFSP</h4>
                   <p className="text-xs text-slate-500 leading-relaxed">Designing contractually certain indemnity structures governed under FSCA FSP License 53666.</p>
                 </div>
               </div>
@@ -88,7 +86,7 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
                   REINSURER POOL NEGOTIATION
                 </strong>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Negotiating directly with <span className="text-slate-900 font-bold">Munich Re</span> and <span className="text-slate-900 font-bold">Swiss Re</span> to anchor custom, robust short-term indemnity layers.
+                  Negotiating directly with major global reinsurers to anchor custom, robust short-term indemnity layers.
                 </p>
               </div>
 
@@ -111,7 +109,7 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
               </div>
 
               <div className="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm">
-                <strong className="text-emerald-600 font-mono text-xs font-bold uppercase mb-1.5 block font-bold">
+                <strong className="text-emerald-600 font-mono text-xs font-bold uppercase mb-1.5 block">
                   UNIFORM RULE 41A MEDIATION
                 </strong>
                 <p className="text-xs text-slate-600 leading-relaxed">
@@ -139,7 +137,7 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
 
         {/* Practice Portfolios Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold text-sky-600 tracking-widest uppercase mb-3 block">
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-3">
             Core Service Portfolios & Risk Solutions
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none">
@@ -168,13 +166,11 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
                 }`}
               >
                 
-                {/* Visual accent left line utilizing calming blue/green color structures */}
                 <div className={`absolute top-0 left-0 w-1.5 h-full transition-all duration-300 ${
                   isHovered ? "bg-sky-600" : "bg-emerald-500"
                 }`} />
 
                 <div>
-                  {/* Card Header Status */}
                   <div className="flex justify-between items-start mb-6">
                     <div className="bg-slate-900 p-3 rounded-xl flex items-center justify-center shrink-0 shadow">
                       <IconComponent className="w-5.5 h-5.5 text-emerald-400" />
@@ -184,7 +180,6 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
                     </span>
                   </div>
 
-                  {/* Title & Category subtitles */}
                   <h3 className="font-display font-extrabold text-xl text-slate-900 hover:text-sky-600 transition-colors mb-1.5">
                     {area.title}
                   </h3>
@@ -196,7 +191,6 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
                     {area.description}
                   </p>
 
-                  {/* Claims features bullet list */}
                   <ul className="space-y-3 mb-6 text-xs text-slate-700">
                     {area.points.map((pt, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
@@ -207,7 +201,6 @@ export default function PracticeAreas({ onContactClick }: PracticeAreasProps) {
                   </ul>
                 </div>
 
-                {/* Card Risk Indicator Segment */}
                 <div className="border-t border-slate-100 pt-4 mt-4 bg-slate-50/50 p-4 rounded-xl border border-slate-200/50">
                   <span className="text-[10px] font-mono text-sky-700 font-extrabold uppercase tracking-wide block mb-1">
                     Regulatory Risk Analysis:

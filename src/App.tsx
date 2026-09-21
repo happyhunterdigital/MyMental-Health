@@ -1,4 +1,4 @@
-import { ChevronUp, Loader2 } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import Navigation from "./components/Navigation";
 import NewsTicker from "./components/NewsTicker";
@@ -30,7 +30,6 @@ function getRoute(): "home" | "privacy" | "terms" | "404" {
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isAppLoading, setIsAppLoading] = useState(true);
   const [route, setRoute] = useState<"home" | "privacy" | "terms" | "404">(() =>
     typeof window !== "undefined" ? getRoute() : "home"
@@ -72,15 +71,8 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
-
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScroll > 0) {
-        setScrollProgress((window.scrollY / totalScroll) * 100);
-      } else {
-        setScrollProgress(0);
-      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -113,7 +105,10 @@ export default function App() {
   if (isAppLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-900">
-        <Loader2 className="w-8 h-8 text-sky-500 animate-spin" />
+        <div className="flex items-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-white/60 text-sm font-mono tracking-wide">Loading</span>
+        </div>
       </div>
     );
   }
@@ -146,66 +141,27 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-cream text-slate-800 font-sans antialiased flex flex-col justify-between relative" id="applet-root">
+    <div className="min-h-screen bg-cream text-slate-800 font-sans antialiased" id="applet-root">
       
-      {/* Scroll Progress Indicator at top of viewport */}
-      <div 
-        className="fixed top-0 left-0 right-0 h-1 bg-slate-100/10 z-[99999] pointer-events-none"
-        id="scroll-progress-container"
-      >
-        <div 
-          className="h-full bg-gradient-to-r from-orange-active via-[#FF8D4D] to-indigo-600 transition-all duration-75"
-          style={{ width: `${scrollProgress}%` }}
-          id="scroll-progress-bar"
-        />
-      </div>
+      {/* Navigation */}
+      <Navigation onContactClick={() => scrollToSection("contact")} />
 
-      {/* Navigation Header */}
-      <Navigation
-        onContactClick={() => scrollToSection("contact")}
-      />
-
-      <main className="flex-grow pt-20">
-        
-        {/* Scrolling Industry-Specific Medico-Legal Advisory updates */}
+      <main>
         <NewsTicker />
-        
-        {/* Hero Section */}
         <Hero
           onContactClick={() => scrollToSection("contact")}
           onFaqClick={() => scrollToSection("faq")}
         />
-
-        {/* Strategic Network — Partners & Consultants */}
         <StrategicNetwork />
-
-        {/* About Us — Firm biography, mission, credentials */}
         <AboutUs />
-
-        {/* Services & Products — Full service portfolio */}
         <ServicesProducts />
-
-        {/* Practice Portfolios, Bio & Clinical-Legal Skills */}
         <PracticeAreas onContactClick={() => scrollToSection("contact")} />
-
-        {/* Interactive Case precedents & Endorsements */}
         <Testimonials />
-
-        {/* Consumer-directed FAQ Directory */}
         <FAQSection />
-
-        {/* Conference & Event Gallery */}
         <EventGallery />
-
-        {/* Chambers & Regional Sessional Rooms map section */}
         <PracticeLocations />
-
-        {/* Thought Leadership Articles & Briefings */}
         <ThoughtLeadership />
-
-        {/* Secure Admissions Inquiry Form */}
         <ContactForm />
-
       </main>
 
       <Footer scrollToSection={scrollToSection} />
@@ -216,9 +172,9 @@ export default function App() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-[99990] p-3 rounded-full bg-slate-900 text-emerald-400 shadow-xl hover:bg-slate-800 transition cursor-pointer"
+          className="fixed bottom-6 right-6 z-[99990] p-3 rounded-full bg-slate-900 text-white shadow-lg hover:bg-slate-800 transition-all duration-300 cursor-pointer"
         >
-          <ChevronUp className="w-5 h-5" />
+          <ChevronUp className="w-4 h-4" />
         </button>
       )}
 

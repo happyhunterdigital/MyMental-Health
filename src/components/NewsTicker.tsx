@@ -241,7 +241,7 @@ export default function NewsTicker() {
                 <div className="flex items-center space-x-1.5 mb-1.5 select-none">
                   <Award className="w-4 h-4 text-orange-active" />
                   <span className="text-[10px] font-mono font-black tracking-widest text-[#FF7A3D] uppercase">
-                    Dr. Mushwana&apos;s Risk Directive:
+                    Christopher Mushwana&apos;s Risk Directive:
                   </span>
                 </div>
                 <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-sans font-semibold italic select-text">

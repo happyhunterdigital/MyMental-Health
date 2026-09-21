@@ -1,166 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", var(--font-sans);
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", var(--font-sans);
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Custom Color Schemes - High-Trust / Calming */
-  --color-cream: #f8fafc;
-  --color-mint: #d1fae5;
-  --color-orange-active: #0284c7;
-  --color-brand-indigo: #0284c7;
-  --color-brand-purple: #0f172a;
-  --color-brand-peach: #10b981;
-  --color-brand-rose: #059669;
+  /* Institutional Medico-Legal Palette */
+  --color-cream: #F7F8FA;
+  --color-mint: #D5E8D4;
+  --color-orange-active: #1B3A4B;
+  --color-brand-indigo: #1B3A4B;
+  --color-brand-purple: #0F1A24;
+  --color-brand-peach: #2D6A4F;
+  --color-brand-rose: #1B4332;
 }
 
 @utility bg-gradient-brand-indigo {
-  background-image: linear-gradient(135deg, #0284c7 0%, #10b981 100%);
+  background: linear-gradient(135deg, #1B3A4B 0%, #2D6A4F 100%);
 }
 
 @utility bg-gradient-brand-sunset {
-  background-image: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #1B3A4B 0%, #1B4332 100%);
 }
 
 @utility text-gradient-brand-indigo {
-  background-image: linear-gradient(135deg, #0284c7 0%, #10b981 100%);
+  background-image: linear-gradient(135deg, #1B3A4B 0%, #2D6A4F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 @utility text-gradient-brand-sunset {
-  background-image: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background-image: linear-gradient(135deg, #1B3A4B 0%, #1B4332 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 body {
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #F7F8FA;
+  color: #0F1A24;
 }
 
-/* Elegant scrollbar styling */
+/* Refined scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: #F7F8FA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #10b981;
-  border-radius: 4px;
+  background: #1B3A4B;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: #2D6A4F;
 }
 
 /* ============================================
-   CALMING HERO — CSS-Only Mesh Gradient System
-   Replaces @paper-design/shaders-react
+   INSTITUTIONAL ANIMATIONS
+   Clean, restrained, professional
    ============================================ */
-
-/* Primary mesh gradient: slow organic breathing movement */
-@keyframes meshFloat {
-  0% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-    background-size: 120% 120%, 150% 150%, 100% 100%;
-  }
-  25% {
-    background-position: 30% 70%, 70% 30%, 20% 80%;
-    background-size: 140% 140%, 130% 130%, 120% 120%;
-  }
-  50% {
-    background-position: 100% 100%, 0% 0%, 80% 20%;
-    background-size: 130% 130%, 160% 160%, 110% 110%;
-  }
-  75% {
-    background-position: 70% 30%, 30% 70%, 60% 40%;
-    background-size: 150% 150%, 120% 120%, 130% 130%;
-  }
-  100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-    background-size: 120% 120%, 150% 150%, 100% 100%;
-  }
-}
-
-/* Ambient pulsing orb for the decorative element */
-@keyframes pulseOrb {
-  0%, 100% {
-    box-shadow: 0 0 20px 4px rgba(2, 132, 199, 0.3), 0 0 40px 8px rgba(16, 185, 129, 0.15);
-    border-color: rgba(2, 132, 199, 0.5);
-    transform: scale(1);
-  }
-  33% {
-    box-shadow: 0 0 25px 6px rgba(56, 189, 248, 0.35), 0 0 50px 12px rgba(52, 211, 153, 0.2);
-    border-color: rgba(56, 189, 248, 0.6);
-    transform: scale(1.04);
-  }
-  66% {
-    box-shadow: 0 0 22px 5px rgba(16, 185, 129, 0.3), 0 0 45px 10px rgba(2, 132, 199, 0.18);
-    border-color: rgba(16, 185, 129, 0.55);
-    transform: scale(1.02);
-  }
-}
-
-/* Gradient text shimmer for headline */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Wireframe overlay drift for depth layer */
-@keyframes meshWireframe {
-  0% {
-    background-position: 0px 0px;
-  }
-  100% {
-    background-position: 40px 40px;
-  }
-}
-
-/* Regulatory News Ticker & Interface Transitions */
-@keyframes marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-
-@utility animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 45s linear infinite;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@utility animate-fadeIn {
-  animation: fadeIn 0.6s ease-in-out forwards;
-}
-
-@keyframes pulse-glow {
-  0% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); }
-  70% { box-shadow: 0 0 0 12px rgba(2, 132, 199, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
-}
 
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-.animate-marquee {
+@utility animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle grain overlay for institutional texture */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(12%, 9%); }
+  70% { transform: translate(9%, 4%); }
+  90% { transform: translate(-1%, 7%); }
 }

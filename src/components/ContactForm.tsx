@@ -12,20 +12,17 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [interestArea, setInterestArea] = useState("HPCSA Disciplinary (Section 41)");
   const [message, setMessage] = useState("");
-  const [urgency, setUrgency] = useState<"Normal" | "High" | "Immediate Dr. Consultation Needed">("Normal");
+  const [urgency, setUrgency] = useState<"Normal" | "High" | "Immediate Consultation Needed">("Normal");
 
-  // Local storage inquiry state
   const [inquiries, setInquiries] = useState<ClientInquiry[]>([]);
   const [submittedInquiry, setSubmittedInquiry] = useState<ClientInquiry | null>(null);
   const [copiedDraft, setCopiedDraft] = useState(false);
 
-  // Inline validation errors, spam honeypot + time-trap
   const [errors, setErrors] = useState<{ fullName?: string; email?: string; phone?: string; consent?: string }>({});
   const [consent, setConsent] = useState(false);
-  const [website, setWebsite] = useState(""); // honeypot — must stay empty
+  const [website, setWebsite] = useState("");
   const [formLoadedAt] = useState<number>(() => Date.now());
 
-  // Load inquiries on mount
   useEffect(() => {
     const saved = localStorage.getItem("mmhfsp_inquiries");
     if (saved) {
@@ -35,19 +32,18 @@ export default function ContactForm() {
         console.error("Failed to parse localized inquiries:", e);
       }
     } else {
-      // Seed initial sample inquiry to demonstrate the corporate log
       const seed: ClientInquiry[] = [
         {
           id: "seq-101",
-          fullName: "Dr. Herman Edeling",
+          fullName: "Medico-Legal Consultant",
           practiceName: "SAMLA Medical Mediation Chambers",
           role: "Medical Mediator",
           email: "mediation@mmhfsp.co.za",
           phone: "+27 (0) 12 342 8890",
           interestArea: "Rule 41A Clinical Mediation",
-          message: "Leading structured alternative dispute resolution under Uniform Rule 41A of the High Court of South Africa. No malpractice claim is settled without the explicit informed consent of the practitioner.",
+          message: "Leading structured alternative dispute resolution under Uniform Rule 41A of the High Court of South Africa. Healthcare professionals' mental health matters.",
           createdAt: "2026-06-16T14:24:00Z",
-          urgency: "Immediate Dr. Consultation Needed"
+          urgency: "Immediate Consultation Needed"
         }
       ];
       setInquiries(seed);
@@ -58,9 +54,7 @@ export default function ContactForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    // Spam defenses: honeypot + time-trap (note: client-side only; pair with
-    // Firebase App Check + server-side rules for production enforcement).
-    if (website.trim() !== "") return; // bot filled honeypot — silently drop
+    if (website.trim() !== "") return;
     if (Date.now() - formLoadedAt < 3000) {
       setErrors({ fullName: "Please take a moment to complete the form before submitting." });
       return;
@@ -73,7 +67,6 @@ export default function ContactForm() {
 
     if (cleanFullName.length < 2) nextErrors.fullName = "Please enter your full name.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) nextErrors.email = "Enter a valid email address (e.g. you@practice.co.za).";
-    // SA-friendly telephone validation: allow +, spaces, brackets, dashes; 7–15 digits
     const digits = cleanPhone.replace(/\D/g, "");
     if (digits.length < 7 || digits.length > 15) nextErrors.phone = "Enter a valid phone number (7–15 digits, e.g. +27 73 487 0620).";
     if (!consent) nextErrors.consent = "POPIA consent is required before we may process your details.";
@@ -102,7 +95,6 @@ export default function ContactForm() {
 
     setSubmittedInquiry(newInquiry);
     
-    // Clear form fields
     setFullName("");
     setPracticeName("");
     setRole("Specialist Physician");
@@ -123,12 +115,11 @@ export default function ContactForm() {
     }
   };
 
-  // Generate automated legal-intake draft email
   const emailDraftText = submittedInquiry
     ? `Subject: Advisory Intake Request FSP 53666 [ID: ${submittedInquiry.id}]
 To: ${profileMeta.contact.email}
 
-Dear Dr. Christopher Mushwana,
+Dear Christopher Mushwana,
 
 I am writing to initiate a medicolegal advisory assessment for my medical practice under FSP 53666.
 
@@ -156,19 +147,17 @@ ${submittedInquiry.fullName}`
           {/* Left Side: Professional Contact Details */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-mint text-xs font-mono font-bold uppercase shadow-sm mb-4">
-                <Calendar className="w-4 h-4 text-mint" />
+              <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
                 Confidential Case Consultations
-              </div>
+              </span>
               <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight mb-4">
                 Secure Advisor Case Intake
               </h2>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Connect directly with Dr. Christopher Mushwana to outline clinical malpractice cover requirements, HPCSA compliance audits, or alternative dispute mediation structures.
+                Connect directly with Chris Mushwana to outline clinical malpractice cover requirements, HPCSA compliance audits, or alternative dispute mediation structures.
               </p>
             </div>
 
-            {/* Direct Channels */}
             <div className="space-y-4">
               
               <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 shadow-sm">
@@ -230,9 +219,7 @@ ${submittedInquiry.fullName}`
             <div className="bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-xl relative">
               
               {!submittedInquiry ? (
-                // INPUT FORM STATE
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                  {/* Honeypot anti-spam field — hidden from humans, bots fill it */}
                   <div className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden" aria-hidden="true">
                     <label>
                       Website
@@ -265,7 +252,7 @@ ${submittedInquiry.fullName}`
                         required
                         minLength={2}
                         autoComplete="name"
-                        placeholder="e.g. Dr. Thabo Motsumi"
+                        placeholder="e.g. Thabo Motsumi"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         aria-invalid={errors.fullName ? true : undefined}
@@ -377,20 +364,19 @@ ${submittedInquiry.fullName}`
                     </div>
                   </div>
 
-                  {/* Urgency block with custom high-contrast buttons */}
                   <div>
                     <label className="block text-[11px] font-mono font-extrabold text-slate-500 uppercase tracking-wider mb-2">
                       Client Case Urgency Indicator
                     </label>
                     <div className="grid grid-cols-3 gap-2 text-center text-[11px] sm:text-xs font-bold">
-                      {(["Normal", "High", "Immediate Dr. Consultation Needed"] as const).map((lvl) => (
+                      {(["Normal", "High", "Immediate Consultation Needed"] as const).map((lvl) => (
                         <button
                           key={lvl}
                           type="button"
                           onClick={() => setUrgency(lvl)}
                           className={`p-2.5 rounded-lg border transition-all cursor-pointer font-bold ${
                             urgency === lvl
-                              ? lvl === "Immediate Dr. Consultation Needed"
+                              ? lvl === "Immediate Consultation Needed"
                                 ? "bg-rose-600 shadow-md text-white border-rose-600"
                                 : lvl === "High"
                                 ? "bg-sky-600 text-white border-sky-600"
@@ -398,7 +384,7 @@ ${submittedInquiry.fullName}`
                               : "bg-slate-50 border-slate-200 text-slate-500 hover:text-slate-800"
                           }`}
                         >
-                          {lvl === "Immediate Dr. Consultation Needed" ? "Immediate Consultation" : lvl}
+                          {lvl === "Immediate Consultation Needed" ? "Immediate Consultation" : lvl}
                         </button>
                       ))}
                     </div>
@@ -450,10 +436,9 @@ ${submittedInquiry.fullName}`
                   </button>
                 </form>
               ) : (
-                // SUBMITTED CASE / PRIVILEGED EMAIL DRAFT STATE
                 <div className="space-y-6">
                   <div className="flex items-center gap-3.5 border-b border-slate-100 pb-5">
-                    <div className="bg-emerald-50 text-emerald-600 p-2.5 rounded-full border border-emerald-200 shrink-0">
+                    <div className="bg-emerald-50 text-emerald-600 p-2.5 rounded-lg border border-emerald-200 shrink-0">
                       <ShieldCheck className="w-6.5 h-6.5 text-emerald-500" />
                     </div>
                     <div>
@@ -461,23 +446,21 @@ ${submittedInquiry.fullName}`
                         Regulatory Case Logged Securely
                       </h3>
                       <p className="text-xs text-slate-500 font-medium">
-                        Intake Case registered under Reference Reference: {submittedInquiry.id}
+                        Intake Case registered under Reference: {submittedInquiry.id}
                       </p>
                     </div>
                   </div>
 
-                  {/* Privilege notice block */}
                   <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex gap-3.5 text-xs leading-relaxed text-amber-900">
                     <ShieldAlert className="w-5.5 h-5.5 text-amber-600 shrink-0 mt-0.5 animate-bounce" />
                     <div>
                       <p className="font-extrabold text-slate-900">Case Privilege Active</p>
                       <p className="mt-0.5 text-slate-700 leading-relaxed text-[11.5px]">
-                        To lock-in sessional coverage immediately, copy the generated intake draft email below and send it to Dr. Mushwana&apos;s secure address (<span className="text-slate-900 font-bold">{profileMeta.contact.email}</span>).
+                        To lock-in sessional coverage immediately, copy the generated intake draft email below and send it to Chris&apos;s secure address (<span className="text-slate-900 font-bold">{profileMeta.contact.email}</span>).
                       </p>
                     </div>
                   </div>
 
-                  {/* Generated Email Draft */}
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-[10.5px]">
                       <span className="font-mono font-bold uppercase text-slate-400">
@@ -510,11 +493,10 @@ ${submittedInquiry.fullName}`
                     </div>
                   </div>
 
-                  {/* CTA Actions */}
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <a
                       href={`mailto:${profileMeta.contact.email}?subject=Secure%20Malpractice%20Advisory%20Intake%20[ID:${submittedInquiry.id}]&body=${encodeURIComponent(
-                        submittedInquiry.message || "Hi Dr. Chris, please review my medical practice sessional cover requirements."
+                        submittedInquiry.message || "Hi Chris, please review my medical practice sessional cover requirements."
                       )}`}
                       className="flex-1 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-4 rounded-lg text-center text-sm flex items-center justify-center gap-2"
                     >
@@ -537,7 +519,6 @@ ${submittedInquiry.fullName}`
 
         </div>
 
-        {/* Private Local Admissions Log */}
         <div className="mt-20 border-t border-slate-200 pt-16">
           <AdmissionsVault
             inquiries={inquiries}

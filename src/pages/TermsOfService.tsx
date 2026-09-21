@@ -19,14 +19,14 @@ export default function TermsOfService() {
           >
             <ArrowLeft className="w-4 h-4" /> Back to home
           </button>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase mb-4">
-            <Scale className="w-4 h-4" /> FAIS • FSP 53666
-          </div>
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
+            FAIS &bull; FSP 53666
+          </span>
           <h1 className="font-display font-black text-3xl text-slate-900 tracking-tight mb-2">
             Terms of Service
           </h1>
           <p className="text-xs font-mono text-slate-500 mb-8">
-            MyMental Health Consulting (Pty) Ltd t/a MMHFSP (FSP No. 53666) • Last updated: September 2026
+            MyMental Health Consulting (Pty) Ltd t/a MMHFSP (FSP No. 53666) &bull; Last updated: September 2026
           </p>
 
           <div className="space-y-6 text-sm leading-relaxed text-slate-600">
@@ -39,11 +39,11 @@ export default function TermsOfService() {
             <section>
               <h2 className="font-bold text-slate-900 mb-1">1. FAIS disclosure (s7 &amp; General Code of Conduct)</h2>
               <p>
-                Registered name: MyMental Health Consulting (Pty) Ltd • Trading name: MMHFSP • FSP
-                licence: 53666 • Category: Short-Term Insurance: Personal &amp; Commercial Lines •
-                Underwriter: New Era Life Insurance (FSP 2736) • Key Individual: Dr. Christopher
-                Mushwana (MBChB) • Address: {profileMeta.address.street}, {profileMeta.address.suburb},{" "}
-                {profileMeta.address.city}, {profileMeta.address.province}, {profileMeta.address.code} •{" "}
+                Registered name: MyMental Health Consulting (Pty) Ltd &bull; Trading name: MMHFSP &bull; FSP
+                licence: 53666 &bull; Category: Short-Term Insurance: Personal &amp; Commercial Lines &bull;
+                Underwriter: FSCA-licensed insurers &bull; Key Individual: Christopher
+                Mushwana (MBChB) &bull; Address: {profileMeta.address.street}, {profileMeta.address.suburb},{" "}
+                {profileMeta.address.city}, {profileMeta.address.province}, {profileMeta.address.code} &bull;{" "}
                 Regulator: Financial Sector Conduct Authority (FSCA). Professional indemnity cover is
                 maintained per FAIS requirements. A Conflict of Interest Management Policy is available
                 on request and in the site footer.
@@ -75,8 +75,10 @@ export default function TermsOfService() {
               <h2 className="font-bold text-slate-900 mb-1">4. HPCSA Section 41 &amp; Rule 41A disclaimer</h2>
               <p>
                 HPCSA disciplinary outcomes depend on the Council and cannot be guaranteed. Mediation
-                under Uniform Rule 41A is voluntary and confidential; no malpractice claim is settled
-                without your explicit, informed written consent. Strict procedural windows apply
+                under Uniform Rule 41A is voluntary and confidential. Healthcare professionals' mental health matters.
+                So, whether it is an audit inquiry by the medical aids or a demanding letter from the attorneys requesting
+                clinical records, we take care of all the communications to ensure your responses are in the legal framework
+                whilst you continue with your clinical practice. Strict procedural windows apply
                 (including approximately 40 working days for HPCSA responses) — instruct us promptly and
                 supply complete, truthful instructions.
               </p>
@@ -154,7 +156,7 @@ export default function TermsOfService() {
                 <a className="text-sky-700 font-semibold" href={`mailto:${profileMeta.contact.email}`}>
                   {profileMeta.contact.email}
                 </a>{" "}
-                • {profileMeta.contact.phone}.
+                &bull; {profileMeta.contact.phone}.
               </p>
             </section>
           </div>

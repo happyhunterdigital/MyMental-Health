@@ -18,15 +18,14 @@ export default function ServicesProducts() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase shadow-sm mb-4">
-            <ShieldAlert className="w-4 h-4 text-emerald-400" />
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
             Services & Products
-          </div>
+          </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-none mb-4">
             Our Services & Products
           </h2>
           <p className="text-slate-500 text-sm leading-relaxed font-sans max-w-2xl mx-auto">
-            Comprehensive medico-legal protection portfolios designed for healthcare professionals across South Africa, Namibia, and Eswatini.
+            Comprehensive medico-legal protection portfolios designed for healthcare professionals across South Africa.
           </p>
         </div>
 
@@ -69,7 +68,6 @@ export default function ServicesProducts() {
 
                 <div className="border-t border-slate-100 pt-4 space-y-2">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-2 w-2 rounded-full bg-orange-active animate-pulse" />
                     <span className="text-[10px] font-mono font-extrabold text-orange-active uppercase tracking-wider">
                       Risk Factor
                     </span>
@@ -91,7 +89,7 @@ export default function ServicesProducts() {
         <div className="mt-16 bg-slate-900 rounded-3xl p-8 text-center text-white">
           <h3 className="font-display font-extrabold text-2xl mb-3">Need a Custom Indemnity Portfolio?</h3>
           <p className="text-slate-400 text-sm max-w-xl mx-auto mb-6 font-sans">
-            Dr. Christopher Mushwana personally structures each policy to match your specific clinical risk profile, specialty, and jurisdictional requirements.
+            Christopher Mushwana personally structures each policy to match your specific clinical risk profile, specialty, and jurisdictional requirements.
           </p>
           <button
             onClick={() => {

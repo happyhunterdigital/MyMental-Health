@@ -95,7 +95,7 @@ export default function ProfilePage() {
                 <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm h-full">
                   <img
                     src="https://res.cloudinary.com/dka0498ns/image/upload/f_auto,q_auto,w_800/v1785275402/WhatsApp_Image_2026-07-22_at_15.08.35_pwsu3s.jpg"
-                    alt="Dr. Christopher Mushwana (MBChB), Key Individual of MMHFSP (FSP 53666)"
+                    alt="Christopher Mushwana (MBChB), Key Individual of MMHFSP (FSP 53666)"
                     className="w-full h-full object-cover object-center min-h-[400px]"
                     loading="lazy"
                     decoding="async"
@@ -112,13 +112,6 @@ export default function ProfilePage() {
             ))}
               </div>
             </div>
-            {defensePortfolios.map((p, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-sky-500/30 hover:shadow-md transition-all">
-                <h3 className="font-display font-bold text-slate-900 text-sm">{p.title}</h3>
-                <span className="text-[10px] font-mono text-sky-600 font-bold uppercase block mt-0.5">Regulatory Precedent: {p.ref}</span>
-                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
           </motion.div>
 
           {/* Practice Locations */}
@@ -165,7 +158,7 @@ export default function ProfilePage() {
             <div>
               <h3 className="font-display font-extrabold text-sm text-slate-900 mb-1">Important Legal & Ethical Compliance Revelation</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                {profileMeta.firmName} t/a MMHFSP is an Authorized Financial Services Provider registered in South Africa (FSP No: {profileMeta.fspLicense}). This documents legal expenses cover administration and sessional clinical risk assessment protocols under the FSCA and Health Professions Act 56 of 1974. Dr. Christopher Mushwana consults strictly as a medicolegal expert and expert underwriter director, and does not conduct direct sessional clinical psychotherapy or psychiatry counseling care.
+                {profileMeta.firmName} t/a MMHFSP is an Authorized Financial Services Provider registered in South Africa (FSP No: {profileMeta.fspLicense}). This documents legal expenses cover administration and sessional clinical risk assessment protocols under the FSCA and Health Professions Act 56 of 1974. Christopher Mushwana consults strictly as a medicolegal expert and expert underwriter director, and does not conduct direct sessional clinical psychotherapy or psychiatry counseling care.
               </p>
             </div>
           </motion.div>

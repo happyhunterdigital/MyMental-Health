@@ -54,7 +54,7 @@ export interface ClientInquiry {
   interestArea: string;
   message: string;
   createdAt: string;
-  urgency: "Normal" | "High" | "Immediate Dr. Consultation Needed";
+  urgency: "Normal" | "High" | "Immediate Consultation Needed";
 }
 
 export interface RegulatoryUpdate {

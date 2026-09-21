@@ -23,14 +23,14 @@ export default function PrivacyPolicy() {
           >
             <ArrowLeft className="w-4 h-4" /> Back to home
           </button>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-emerald-400 text-xs font-mono font-bold uppercase mb-4">
-            <ShieldCheck className="w-4 h-4" /> POPIA &amp; GDPR Compliant
-          </div>
+          <span className="text-[11px] font-mono font-medium tracking-[0.05em] uppercase text-slate-400 block mb-4">
+            POPIA &amp; GDPR Compliant
+          </span>
           <h1 className="font-display font-black text-3xl text-slate-900 tracking-tight mb-2">
             Privacy Policy
           </h1>
           <p className="text-xs font-mono text-slate-500 mb-8">
-            MyMental Health Consulting (Pty) Ltd t/a MMHFSP (FSP No. 53666) • Last updated: September 2026
+            MyMental Health Consulting (Pty) Ltd t/a MMHFSP (FSP No. 53666) &bull; Last updated: September 2026
           </p>
 
           <div className="space-y-6 text-sm leading-relaxed text-slate-600">
@@ -46,11 +46,11 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="font-bold text-slate-900 mb-1">1. Information Officer</h2>
               <p>
-                Information Officer: Dr. Christopher Mushwana (Key Individual). Contact:{" "}
+                Information Officer: Christopher Mushwana (Key Individual). Contact:{" "}
                 <a className="text-sky-700 font-semibold" href={`mailto:${profileMeta.contact.email}`}>
                   {profileMeta.contact.email}
                 </a>{" "}
-                • {profileMeta.contact.phone} • {profileMeta.address.street},{" "}
+                &bull; {profileMeta.contact.phone} &bull; {profileMeta.address.street},{" "}
                 {profileMeta.address.suburb}, {profileMeta.address.city},{" "}
                 {profileMeta.address.province}, {profileMeta.address.code}, {profileMeta.address.country}.
                 You may also lodge complaints with the Information Regulator of South Africa
@@ -85,7 +85,7 @@ export default function PrivacyPolicy() {
               <p>
                 All practitioner communications are treated as confidential under HPCSA ethical rules on
                 professional confidentiality. Intake statements are shared with instructed counsel,
-                underwriters (New Era Life Insurance, FSP 2736), or reinsurers only where strictly
+                underwriters or reinsurers only where strictly
                 necessary to fulfil your mandate and with appropriate confidentiality safeguards.
                 Nothing on this website creates a doctor–patient, attorney–client, or insurer–insured
                 relationship until a written mandate is signed.
@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
                 termination of the product or finalisation of a complaint. Records are stored encrypted
                 (TLS in transit, encrypted at rest via Firebase/Firestore) with role-based access.
                 Physical notes are kept in locked, access-controlled facilities under the custodianship
-                of Dr. Christopher Mushwana.
+                of Christopher Mushwana.
               </p>
             </section>
 
@@ -122,7 +122,7 @@ export default function PrivacyPolicy() {
               <p>
                 We do not sell personal information. Disclosure occurs only with consent or where required
                 by law or regulators (HPCSA, FSCA, FAIS Ombud, courts). Services operate in South Africa,
-                Namibia, and Eswatini; cross-border transfers use GDPR Chapter V safeguards (adequacy or
+                South Africa; cross-border transfers use GDPR Chapter V safeguards (adequacy or
                 standard contractual clauses). Processors (hosting, email) are bound by written agreements.
               </p>
             </section>
