@@ -2,15 +2,21 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
     // Public read: regulatory documents are served to the public.
-    // Writes are restricted to the site owner only.
+    // Writes are restricted to the verified site owner only.
     function isAdmin() {
       return request.auth != null
+        && request.auth.token.email_verified == true
         && request.auth.token.email.lower() == 'chris@mmhfsp.co.za';
+    }
+
+    function isSafeUpload() {
+      return request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches('^(image/(jpeg|png|webp|avif)|application/pdf|video/mp4)$');
     }
 
     match /{allPaths=**} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if isAdmin() && isSafeUpload();
     }
   }
 }

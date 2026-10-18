@@ -6,3 +6,12 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Never commit credentials
+*.pem
+*.p12
+*.pfx
+serviceAccount*.json
+*firebase-adminsdk*.json
+.firebase/
+.firebase.*.json
