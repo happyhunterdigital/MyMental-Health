@@ -8,6 +8,23 @@ Medico-Legal Advisory & Indemnity platform for healthcare professionals across S
 
 1. Install dependencies:
    `npm install`
-2. Set the `DEEPSEEK_API_KEY` in `.env.local` to your DeepSeek API key
-3. Run the app:
+2. Run the app:
    `npm run dev`
+
+The app is served at `http://localhost:3000`.
+
+## Build
+
+```
+npm run build
+```
+
+Output is written to `dist/` and deployed to Firebase Hosting via GitHub Actions on every push to `main`.
+
+## Project Structure
+
+- `index.html` / `src/main.tsx` — landing site entry
+- `profile.html` / `src/profile-main.tsx` — professional profile site entry
+- `src/components/` — shared React components
+- `src/utils/pdfGenerator.ts` — client-side PDF credential brief generation
+- `firestore.rules` / `storage.rules` — Firebase security rules
