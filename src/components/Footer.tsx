@@ -120,6 +120,15 @@ export default function Footer({ scrollToSection }: FooterProps) {
                   Terms of Service
                 </a>
               </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => document.dispatchEvent(new Event('hh:open-consent'))}
+                  className="text-[13px] text-slate-500 hover:text-white transition-colors"
+                >
+                  Cookie settings
+                </button>
+              </li>
               {(["privacy", "fsp", "conflict", "disclaimer", "complaints"] as const).map((key) => (
                 <li key={key}>
                   <button

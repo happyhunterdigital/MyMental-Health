@@ -1,33 +1,19 @@
 import { useEffect, useState } from "react";
 import { Cookie, X } from "lucide-react";
-
-const KEY = "mmhfsp_cookie_consent";
-const MAX_AGE_DAYS = 180;
+import { CONSENT_OPEN_EVENT, getConsent, setConsent } from "../lib/consent";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(KEY);
-      if (!raw) {
-        setVisible(true);
-        return;
-      }
-      const parsed = JSON.parse(raw) as { value: string; ts: number };
-      const ageMs = Date.now() - (parsed.ts || 0);
-      if (ageMs > MAX_AGE_DAYS * 24 * 60 * 60 * 1000) setVisible(true);
-    } catch {
-      setVisible(true);
-    }
+    setVisible(getConsent() === null);
+    const open = () => setVisible(true);
+    document.addEventListener(CONSENT_OPEN_EVENT, open);
+    return () => document.removeEventListener(CONSENT_OPEN_EVENT, open);
   }, []);
 
   const choose = (value: "accepted" | "declined") => {
-    try {
-      localStorage.setItem(KEY, JSON.stringify({ value, ts: Date.now() }));
-    } catch {
-      /* storage unavailable — banner simply hides */
-    }
+    setConsent(value);
     setVisible(false);
   };
 
@@ -48,7 +34,7 @@ export default function CookieConsent() {
           <p className="font-bold text-sm text-white mb-1">We value your privacy</p>
           <p className="text-xs leading-relaxed text-slate-300">
             We use strictly necessary storage (e.g. remembering this choice) and no advertising
-            trackers. Optional intake drafts stay on your device. See our{" "}
+            trackers. Analytics and optional third-party scripts stay off until you accept. See our{" "}
             <a href="/privacy" className="text-emerald-400 font-semibold underline underline-offset-2 hover:text-emerald-300">
               Privacy Policy
             </a>
